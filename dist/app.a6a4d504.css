@@ -1,0 +1,36 @@
+.o-button[data-v-9e778f]{
+    background-color: white;
+    border: 1px solid grey;
+    height: 41px;
+    font-size: 18px;
+    overflow: hidden;
+    text-align: center;
+    outline: 0;
+    vertical-align: center;
+    position: relative;
+}
+.large[data-v-9e778f]{
+    width: 100%;
+}
+.medium[data-v-9e778f]{
+    width: 50%;
+    border-radius: 4px;
+}
+.small[data-v-9e778f]{
+    width: 25%;
+    border-radius: 4px;
+}
+.primary[data-v-9e778f]{
+    background-color: #26a2ff;
+}
+.o-button[data-v-9e778f]::after{
+    content: '';
+    background-color: #000;
+    content: " ";
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+}
