@@ -49,13 +49,19 @@ export default {
     .default{
         background-color: white;
     }
+    .default:active{
+        background-color: grey;
+    }
     .primary{
         background-color: #26a2ff;
     }
-    .primary:hover{
+    .primary:active{
         background-color: #1574bd;
     }
     .dangerous{
         background-color: #ef4f4f;
+    }
+    .dangerous:active{
+        background-color: #ce2a2a;
     }
 </style>

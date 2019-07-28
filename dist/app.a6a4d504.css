@@ -23,12 +23,18 @@
 .default[data-v-9e778f]{
     background-color: white;
 }
+.default[data-v-9e778f]:active{
+    background-color: grey;
+}
 .primary[data-v-9e778f]{
     background-color: #26a2ff;
 }
-.primary[data-v-9e778f]:hover{
+.primary[data-v-9e778f]:active{
     background-color: #1574bd;
 }
 .dangerous[data-v-9e778f]{
     background-color: #ef4f4f;
+}
+.dangerous[data-v-9e778f]:active{
+    background-color: #ce2a2a;
 }
