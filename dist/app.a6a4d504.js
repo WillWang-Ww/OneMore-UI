@@ -12420,10 +12420,16 @@ var _default = {
   name: 'o-Button',
   props: {
     size: {
-      type: String
+      type: String,
+      validator: function validator(value) {
+        return ['small', 'normal', 'large'].indexOf(value) > -1;
+      }
     },
     importance: {
-      type: String
+      type: String,
+      validator: function validator(value) {
+        return ['default', 'primary', 'dangerous'].indexOf(value) > -1;
+      }
     }
   }
 };
@@ -12529,7 +12535,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56677" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54116" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

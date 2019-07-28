@@ -12,7 +12,7 @@
 .large[data-v-9e778f]{
     width: 100%;
 }
-.medium[data-v-9e778f]{
+.normal[data-v-9e778f]{
     width: 50%;
     border-radius: 4px;
 }
@@ -20,17 +20,15 @@
     width: 25%;
     border-radius: 4px;
 }
+.default[data-v-9e778f]{
+    background-color: white;
+}
 .primary[data-v-9e778f]{
     background-color: #26a2ff;
 }
-.o-button[data-v-9e778f]::after{
-    content: '';
-    background-color: #000;
-    content: " ";
-    opacity: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    position: absolute;
+.primary[data-v-9e778f]:hover{
+    background-color: #1574bd;
+}
+.dangerous[data-v-9e778f]{
+    background-color: #ef4f4f;
 }

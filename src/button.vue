@@ -9,11 +9,18 @@ export default {
     props:{
         size:{
             type: String,
+            validator(value) {
+                return ['small','normal','large'].indexOf(value) > -1;
+            },
         },
         importance:{
             type: String,
+            validator(value) {
+                return ['default','primary','dangerous'].indexOf(value) > -1;
+            },
         }
-    }
+    },
+    
 }
 </script>
 <style scoped>
@@ -31,7 +38,7 @@ export default {
     .large{
         width: 100%;
     }
-    .medium{
+    .normal{
         width: 50%;
         border-radius: 4px;
     }
@@ -39,19 +46,16 @@ export default {
         width: 25%;
         border-radius: 4px;
     }
+    .default{
+        background-color: white;
+    }
     .primary{
         background-color: #26a2ff;
     }
-    .o-button::after{
-        content: '';
-        background-color: #000;
-        content: " ";
-        opacity: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        position: absolute;
+    .primary:hover{
+        background-color: #1574bd;
+    }
+    .dangerous{
+        background-color: #ef4f4f;
     }
 </style>
-
