@@ -14,9 +14,9 @@
 <link rel="stylesheet" href="/app.a6a4d504.css"></head>
 <body>
     <div id="app">
-        <o-button size="large" importance="default" name="setting">Default</o-button>
-        <o-button size="normal" importance="primary" name="setting">Default</o-button>
-        <o-button size="small" importance="light" name="setting">Default</o-button>
+        <o-button size="large" importance="default" icon="setting">Setting</o-button>
+        <o-button size="normal" importance="primary" icon="check">Check</o-button>
+        <o-button size="small" importance="light" icon="setting" :loading="loading1" @click="loading1 = !loading1">Setting</o-button>
     </div>
 </body>
 <script src="//at.alicdn.com/t/font_1322363_9opio6qse4b.js"></script>

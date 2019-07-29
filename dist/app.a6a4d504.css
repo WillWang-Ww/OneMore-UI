@@ -1,53 +1,60 @@
-.o-button[data-v-9e778f]{
-        color: white;
-        border: none;
-        height: 41px;
-        font-size: 16px;
-        overflow: hidden;
-        text-align: center;
-        outline: 0;
-        vertical-align: center;
-        position: relative;
-        border-radius: 2px;
-        white-space: nowrap;
-        line-height: 1;
-        display:inline-flex;
-        justify-content: center;
-        align-items: center;
-}
-.large[data-v-9e778f]{
-        width: 100%;
-}
-.normal[data-v-9e778f]{
-        width: 50%;
-}
-.small[data-v-9e778f]{
-        width: 25%;
-}
-.default[data-v-9e778f]{
-        background-color: #4a4c5b;
-}
-.default[data-v-9e778f]:active{
-        background-color: #3d3e47;
-}
-.primary[data-v-9e778f]{
-        background-color: #fc9153;
-}
-.primary[data-v-9e778f]:active{
-        background-color: #d86c2d;
-}
-.light[data-v-9e778f]{
-        color: #666;
-        background-color:#fcfcfc;
-        box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
-}
-.light[data-v-9e778f]:active{
-        background-color: #c9c9c9;
-}
-.icon[data-v-9e778f] {
+.icon {
     width: 1em; height: 1em;
     fill: currentColor;
     overflow: hidden;
     margin: 0px;
     margin-right: 0.2em;
+}
+@keyframes loading {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+.loading{
+    animation: loading 1s linear infinite;
+}
+.o-button[data-v-9e778f]{
+    color: white;
+    border: none;
+    height: 41px;
+    font-size: 16px;
+    overflow: hidden;
+    text-align: center;
+    outline: 0;
+    vertical-align: center;
+    position: relative;
+    border-radius: 2px;
+    white-space: nowrap;
+    line-height: 1;
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.large[data-v-9e778f]{
+    width: 100%;
+}
+.normal[data-v-9e778f]{
+    width: 50%;
+}
+.small[data-v-9e778f]{
+    width: 25%;
+}
+.default[data-v-9e778f]{
+    background-color: #4a4c5b;
+}
+.default[data-v-9e778f]:active{
+    background-color: #3d3e47;
+}
+.primary[data-v-9e778f]{
+    background-color: #fc9153;
+}
+.primary[data-v-9e778f]:active{
+    background-color: #d86c2d;
+}
+.light[data-v-9e778f]{
+    color: #666;
+    background-color:#fcfcfc;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+}
+.light[data-v-9e778f]:active{
+    background-color: #c9c9c9;
 }

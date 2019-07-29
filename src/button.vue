@@ -1,15 +1,22 @@
 <template>
-    <button class="o-button" :class="{ [`${size}`] : true,[`${importance}`] : true}">
-        <svg class="icon">
-            <use :xlink:href="`#icon-${name}`"></use>
-        </svg>
+    <button class="o-button" :class="{ [`${size}`] : true,[`${importance}`] : true}" @click="$emit('click')">
+        <o-icon v-if="icon && !loading" :icon='icon'></o-icon>
+        <o-icon v-if="loading" icon='loading'></o-icon>
         <slot></slot>
     </button>
 </template>
 <script>
+import Icon from './icon'
 export default {
-    name:'o-Button',
+    name:'OneButton',
+    components:{
+        'o-icon': Icon
+    },
     props:{
+        icon:{},
+        loading:{
+            type: Boolean
+        },
         size:{
             type: String,
             validator(value) {
@@ -26,7 +33,11 @@ export default {
             type: String,
         }
     },
-    
+    methods:{
+        clickButton() {
+            this.$emit('click')
+        }
+    },
 }
 </script>
 <style scoped>
@@ -77,11 +88,4 @@ export default {
     .light:active{
         background-color: #c9c9c9;
     }
-    .icon {
-    width: 1em; height: 1em;
-    fill: currentColor;
-    overflow: hidden;
-    margin: 0px;
-    margin-right: 0.2em;
-}
 </style>

@@ -4,5 +4,8 @@ import Button from './button'
 Vue.component('o-button',Button)
 
 new Vue({
-    el:'#app'
+    el:'#app',
+    data:{
+        loading1:false
+    }
 })
