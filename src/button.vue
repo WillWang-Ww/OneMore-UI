@@ -1,5 +1,8 @@
 <template>
     <button class="o-button" :class="{ [`${size}`] : true,[`${importance}`] : true}">
+        <svg class="icon">
+            <use :xlink:href="`#icon-${name}`"></use>
+        </svg>
         <slot></slot>
     </button>
 </template>
@@ -18,6 +21,9 @@ export default {
             validator(value) {
                 return ['default','primary','light'].indexOf(value) > -1;
             },
+        },
+        name:{
+            type: String,
         }
     },
     
@@ -37,6 +43,9 @@ export default {
         border-radius: 2px;
         white-space: nowrap;
         line-height: 1;
+        display:inline-flex;
+        justify-content: center;
+        align-items: center;
     }
     .large{
         width: 100%;
@@ -68,4 +77,11 @@ export default {
     .light:active{
         background-color: #c9c9c9;
     }
+    .icon {
+    width: 1em; height: 1em;
+    fill: currentColor;
+    overflow: hidden;
+    margin: 0px;
+    margin-right: 0.2em;
+}
 </style>

@@ -12416,6 +12416,9 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
 var _default = {
   name: 'o-Button',
   props: {
@@ -12430,6 +12433,9 @@ var _default = {
       validator: function validator(value) {
         return ['default', 'primary', 'light'].indexOf(value) > -1;
       }
+    },
+    name: {
+      type: String
     }
   }
 };
@@ -12456,7 +12462,13 @@ exports.default = _default;
       (_obj["" + _vm.importance] = true),
       _obj)
     },
-    [_vm._t("default")],
+    [
+      _c("svg", { staticClass: "icon" }, [
+        _c("use", { attrs: { "xlink:href": "#icon-" + _vm.name } })
+      ]),
+      _vm._v(" "),
+      _vm._t("default")
+    ],
     2
   )
 }
@@ -12535,7 +12547,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50191" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55124" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
