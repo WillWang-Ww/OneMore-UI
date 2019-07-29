@@ -12428,7 +12428,7 @@ var _default = {
     importance: {
       type: String,
       validator: function validator(value) {
-        return ['default', 'primary', 'dangerous'].indexOf(value) > -1;
+        return ['default', 'primary', 'light'].indexOf(value) > -1;
       }
     }
   }
@@ -12535,7 +12535,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54116" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50191" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

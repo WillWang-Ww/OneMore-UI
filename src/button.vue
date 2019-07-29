@@ -16,7 +16,7 @@ export default {
         importance:{
             type: String,
             validator(value) {
-                return ['default','primary','dangerous'].indexOf(value) > -1;
+                return ['default','primary','light'].indexOf(value) > -1;
             },
         }
     },
@@ -25,43 +25,47 @@ export default {
 </script>
 <style scoped>
     .o-button{
-        background-color: white;
-        border: 1px solid grey;
+        color: white;
+        border: none;
         height: 41px;
-        font-size: 18px;
+        font-size: 16px;
         overflow: hidden;
         text-align: center;
         outline: 0;
         vertical-align: center;
         position: relative;
+        border-radius: 2px;
+        white-space: nowrap;
+        line-height: 1;
     }
     .large{
         width: 100%;
     }
     .normal{
         width: 50%;
-        border-radius: 4px;
     }
     .small{
         width: 25%;
-        border-radius: 4px;
+        
     }
     .default{
-        background-color: white;
+        background-color: #4a4c5b;
     }
     .default:active{
-        background-color: grey;
+        background-color: #3d3e47;
     }
     .primary{
-        background-color: #26a2ff;
+        background-color: #fc9153;
     }
     .primary:active{
-        background-color: #1574bd;
+        background-color: #d86c2d;
     }
-    .dangerous{
-        background-color: #ef4f4f;
+    .light{
+        color: #666;
+        background-color:#fcfcfc;
+        box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
     }
-    .dangerous:active{
-        background-color: #ce2a2a;
+    .light:active{
+        background-color: #c9c9c9;
     }
 </style>
