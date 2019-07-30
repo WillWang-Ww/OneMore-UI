@@ -1,5 +1,5 @@
 <template>
-    <button class="o-button" :class="{ [`${size}`] : true,[`${importance}`] : true}" @click="$emit('click')">
+    <button class="o-button" :class="{ [`${size}`] : true,[`${importance}`] : true , disabled}" :disabled='ifDisabled()' @click="$emit('click')">
         <o-icon v-if="icon && !loading" :icon='icon'></o-icon>
         <o-icon v-if="loading" icon='loading'></o-icon>
         <o-icon v-if="check" icon='check'></o-icon>
@@ -33,6 +33,9 @@ export default {
                 return ['default','primary','light'].indexOf(value) > -1;
             },
         },
+        disabled:{
+            type: Boolean
+        },
         name:{
             type: String,
         }
@@ -40,6 +43,11 @@ export default {
     methods:{
         clickButton() {
             this.$emit('click')
+        },
+        ifDisabled() {
+            if(this.disabled === true){
+                return this.disabled
+            }
         }
     },
 }
@@ -92,5 +100,8 @@ export default {
     }
     .light:active{
         background-color: #c9c9c9;
+    }
+    .disabled{
+        background-color: #ccc;
     }
 </style>

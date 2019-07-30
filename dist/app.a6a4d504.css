@@ -58,3 +58,6 @@
 .light[data-v-9e778f]:active{
     background-color: #c9c9c9;
 }
+.disabled[data-v-9e778f]{
+    background-color: #ccc;
+}

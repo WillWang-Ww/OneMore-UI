@@ -12515,6 +12515,9 @@ var _default = {
         return ['default', 'primary', 'light'].indexOf(value) > -1;
       }
     },
+    disabled: {
+      type: Boolean
+    },
     name: {
       type: String
     }
@@ -12522,6 +12525,11 @@ var _default = {
   methods: {
     clickButton: function clickButton() {
       this.$emit('click');
+    },
+    ifDisabled: function ifDisabled() {
+      if (this.disabled === true) {
+        return this.disabled;
+      }
     }
   }
 };
@@ -12546,7 +12554,9 @@ exports.default = _default;
       class: ((_obj = {}),
       (_obj["" + _vm.size] = true),
       (_obj["" + _vm.importance] = true),
+      (_obj.disabled = _vm.disabled),
       _obj),
+      attrs: { disabled: _vm.ifDisabled() },
       on: {
         click: function($event) {
           return _vm.$emit("click")
