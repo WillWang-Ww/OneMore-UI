@@ -12489,6 +12489,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 var _default = {
   name: 'OneButton',
   components: {
@@ -12497,6 +12498,9 @@ var _default = {
   props: {
     icon: {},
     loading: {
+      type: Boolean
+    },
+    check: {
       type: Boolean
     },
     size: {
@@ -12556,6 +12560,8 @@ exports.default = _default;
       _vm._v(" "),
       _vm.loading ? _c("o-icon", { attrs: { icon: "loading" } }) : _vm._e(),
       _vm._v(" "),
+      _vm.check ? _c("o-icon", { attrs: { icon: "check" } }) : _vm._e(),
+      _vm._v(" "),
       _vm._t("default")
     ],
     2
@@ -12608,7 +12614,8 @@ _vue.default.component('o-button', _button.default);
 new _vue.default({
   el: '#app',
   data: {
-    loading1: false
+    loading1: false,
+    check: true
   }
 });
 },{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -12639,7 +12646,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55124" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55408" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

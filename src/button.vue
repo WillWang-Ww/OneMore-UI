@@ -2,6 +2,7 @@
     <button class="o-button" :class="{ [`${size}`] : true,[`${importance}`] : true}" @click="$emit('click')">
         <o-icon v-if="icon && !loading" :icon='icon'></o-icon>
         <o-icon v-if="loading" icon='loading'></o-icon>
+        <o-icon v-if="check" icon='check'></o-icon>
         <slot></slot>
     </button>
 </template>
@@ -15,6 +16,9 @@ export default {
     props:{
         icon:{},
         loading:{
+            type: Boolean
+        },
+        check:{
             type: Boolean
         },
         size:{
@@ -49,7 +53,7 @@ export default {
         overflow: hidden;
         text-align: center;
         outline: 0;
-        vertical-align: center;
+        vertical-align: middle;
         position: relative;
         border-radius: 2px;
         white-space: nowrap;
@@ -57,6 +61,7 @@ export default {
         display:inline-flex;
         justify-content: center;
         align-items: center;
+        
     }
     .large{
         width: 100%;

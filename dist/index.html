@@ -7,18 +7,16 @@
     <title>OneMoreUI 移动端组件库</title>
     <style>*{margin: 0;padding: 0;}
     *{box-sizing: border-box;}</style>
-    <style>*{
-        margin-bottom: 10px;
-    }</style>
+    <style>*{margin-bottom: 10px;}</style>
     
 <link rel="stylesheet" href="/app.a6a4d504.css"></head>
 <body>
     <div id="app">
-        <o-button size="large" importance="default" icon="setting">Setting</o-button>
-        <o-button size="normal" importance="primary" icon="check">Check</o-button>
+        <o-button size="large" importance="default" icon="uncheck">Setting</o-button>
+        <o-button size="normal" importance="primary" :check="check" @click="check = !check">Check</o-button>
         <o-button size="small" importance="light" icon="setting" :loading="loading1" @click="loading1 = !loading1">Setting</o-button>
     </div>
 </body>
-<script src="//at.alicdn.com/t/font_1322363_9opio6qse4b.js"></script>
+<script src="//at.alicdn.com/t/font_1322363_cstzwgzzbv.js"></script>
 <script src="/app.a6a4d504.js"></script>
 </html>
