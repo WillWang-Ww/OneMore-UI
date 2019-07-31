@@ -12,6 +12,8 @@ new Vue({
 })
 
 import chai from 'chai'
+import spies from 'chai-spies'
+chai.use(spies)
 
 const expect = chai.expect
 //单元测试
@@ -62,4 +64,19 @@ const expect = chai.expect
     expect(href).to.eq('#icon-check')
     vm.$el.remove()
     vm.$destroy()
+}
+//使用chai spies 对click进行测试 mock
+{
+    const Constructor = Vue.extend(Button)
+    const vm = new Constructor({
+        propsData:{
+            icon: 'setting',
+        }
+    })
+    vm.$mount()
+    let spy = chai.spy(function(){}) //设置一个空的间谍函数
+    vm.$on('click',spy)
+    let button = vm.$el
+    button.click()
+    expect(spy).to.have.been.called() //期待click后间谍函数被调用
 }
