@@ -7,6 +7,6 @@ new Vue({
     el:'#app',
     data:{
         loading1:false,
-        check:true,
+        check1:false,
     }
 })

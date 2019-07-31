@@ -12564,7 +12564,7 @@ exports.default = _default;
       }
     },
     [
-      _vm.icon && !_vm.loading
+      _vm.icon && !_vm.loading && !_vm.check
         ? _c("o-icon", { attrs: { icon: _vm.icon } })
         : _vm._e(),
       _vm._v(" "),
@@ -12625,7 +12625,7 @@ new _vue.default({
   el: '#app',
   data: {
     loading1: false,
-    check: true
+    check1: false
   }
 });
 },{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -12656,7 +12656,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55408" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52019" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

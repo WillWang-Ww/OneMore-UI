@@ -1,6 +1,6 @@
 <template>
     <button class="o-button" :class="{ [`${size}`] : true,[`${importance}`] : true , disabled}" :disabled='ifDisabled()' @click="$emit('click')">
-        <o-icon v-if="icon && !loading" :icon='icon'></o-icon>
+        <o-icon v-if="icon && !loading && !check" :icon='icon'></o-icon>
         <o-icon v-if="loading" icon='loading'></o-icon>
         <o-icon v-if="check" icon='check'></o-icon>
         <slot></slot>
