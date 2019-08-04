@@ -52,13 +52,17 @@ export default {
         border: 1px solid #ddd;
         border-radius: 2px;
         width: 100%;
-        padding: 5px 10px;
-        background-color: #fc9153;
+        padding: 12px 10px;
+        background-color: #4a4c5b;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .content{
         border: 1px solid #ddd;
         border-radius: 2px;
         width: 100%;
-        padding: 5px 10px;
+        padding: 12px 10px;
     }
 </style>
