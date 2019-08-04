@@ -61,3 +61,21 @@
 .disabled[data-v-9e778f]{
     background-color: #ccc;
 }
+#collapse{
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 100%;
+    overflow: hidden;
+}
+.title[data-v-061b2e]{
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    width: 100%;
+    padding: 5px 10px;
+}
+.content[data-v-061b2e]{
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    width: 100%;
+    padding: 5px 10px;
+}
