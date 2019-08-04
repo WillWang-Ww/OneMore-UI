@@ -12491,7 +12491,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 var _default = {
-  name: 'OneButton',
+  name: 'OMButton',
   components: {
     'o-icon': _icon.default
   },
@@ -12617,12 +12617,64 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+var _vue = _interopRequireDefault(require("vue"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 //
 //
 //
 //
 //
-var _default = {};
+//
+var _default = {
+  name: 'OMCollapse',
+  props: {
+    single: {
+      type: Boolean,
+      default: false
+    },
+    selected: {
+      type: Array
+    }
+  },
+  data: function data() {
+    return {
+      eventBus: new _vue.default()
+    };
+  },
+  provide: function provide() {
+    return {
+      eventBus: this.eventBus
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.eventBus.$emit('update:selected', this.selected);
+    this.eventBus.$on('update:addSelected', function (name) {
+      if (_this.single) {
+        _this.selected = [name];
+      } else {
+        _this.selected.push(name);
+      }
+
+      _this.eventBus.$emit('update:selected', _this.selected);
+
+      _this.$emit('update:selected', _this.selected);
+    });
+    this.eventBus.$on('update:removeSelected', function (name) {
+      var index = _this.selected.indexOf(name);
+
+      _this.selected.splice(index, 1);
+
+      _this.eventBus.$emit('update:selected', _this.selected);
+
+      _this.$emit('update:selected', _this.selected);
+    });
+  }
+};
 exports.default = _default;
         var $42cef2 = exports.default || module.exports;
       
@@ -12671,7 +12723,7 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/collapse-item.vue":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"src/collapse-item.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12688,12 +12740,14 @@ exports.default = void 0;
 //
 //
 //
-//
-//
 var _default = {
-  name: 'CollapseItem',
+  name: 'OMCollapseItem',
   props: {
     title: {
+      type: String,
+      required: true
+    },
+    name: {
       type: String,
       required: true
     }
@@ -12702,6 +12756,27 @@ var _default = {
     return {
       open: false
     };
+  },
+  inject: ['eventBus'],
+  mounted: function mounted() {
+    var _this = this;
+
+    this.eventBus && this.eventBus.$on('update:selected', function (selected) {
+      if (selected.indexOf(_this.name) >= 0) {
+        _this.open = true;
+      } else {
+        _this.open = false;
+      }
+    });
+  },
+  methods: {
+    toggle: function toggle() {
+      if (this.open) {
+        this.eventBus && this.eventBus.$emit('update:removeSelected', this.name);
+      } else {
+        this.eventBus && this.eventBus.$emit('update:addSelected', this.name);
+      }
+    }
   }
 };
 exports.default = _default;
@@ -12717,26 +12792,15 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "collapseItem",
-      on: {
-        click: function($event) {
-          _vm.open = !_vm.open
-        }
-      }
-    },
-    [
-      _c("div", { staticClass: "title" }, [
-        _vm._v("\n        " + _vm._s(_vm.title) + "  \n    ")
-      ]),
-      _vm._v(" "),
-      _vm.open
-        ? _c("div", { staticClass: "content" }, [_vm._t("default")], 2)
-        : _vm._e()
-    ]
-  )
+  return _c("div", { staticClass: "collapseItem", on: { click: _vm.toggle } }, [
+    _c("div", { staticClass: "title" }, [
+      _vm._v("\n        " + _vm._s(_vm.title) + "  \n    ")
+    ]),
+    _vm._v(" "),
+    _vm.open
+      ? _c("div", { staticClass: "content" }, [_vm._t("default")], 2)
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12793,8 +12857,7 @@ _vue.default.component('o-collapse-item', _collapseItem.default);
 new _vue.default({
   el: '#app',
   data: {
-    loading1: false,
-    check1: false
+    selectedTab: ['2']
   }
 });
 },{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./collapse.vue":"src/collapse.vue","./collapse-item.vue":"src/collapse-item.vue"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

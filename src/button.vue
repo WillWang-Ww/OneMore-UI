@@ -9,7 +9,7 @@
 <script>
 import Icon from './icon'
 export default {
-    name:'OneButton',
+    name:'OMButton',
     components:{
         'o-icon': Icon
     },

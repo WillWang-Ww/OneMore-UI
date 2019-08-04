@@ -10,7 +10,6 @@ Vue.component('o-collapse-item',CollapseItem)
 new Vue({
     el:'#app',
     data:{
-        loading1:false,
-        check1:false,
+        selectedTab:['2']
     }
 })

@@ -12491,7 +12491,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 var _default = {
-  name: 'OneButton',
+  name: 'OMButton',
   components: {
     'o-icon': _icon.default
   },
