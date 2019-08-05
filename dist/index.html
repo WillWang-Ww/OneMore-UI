@@ -7,17 +7,14 @@
     <title>OneMoreUI 移动端组件库</title>
     <style>*{margin: 0;padding: 0;}
     *{box-sizing: border-box;}</style>
-    <style>
-    </style>
+    <style>#button{
+            margin-top: 200px;
+        }</style>
     
 <link rel="stylesheet" href="/app.a6a4d504.css"></head>
 <body>
     <div id="app">
-        <o-collapse :selected="selectedTab">
-            <o-collapse-item title="标题1" name="1">内容1</o-collapse-item>
-            <o-collapse-item title="标题2" name="2">内容2</o-collapse-item>            
-            <o-collapse-item title="标题3" name="3">内容3</o-collapse-item>
-        </o-collapse>   
+        <o-button id="button" importance="default" size="large" @click="showToast">点我</o-button> 
     </div>
 </body>
 <script src="//at.alicdn.com/t/font_1322363_cstzwgzzbv.js"></script>

@@ -28,6 +28,7 @@ export default {
     },
     inject:['eventBus'],
     mounted(){
+        //接收父组件Collapse处理后的selected信息并操作是否显示
         this.eventBus && this.eventBus.$on('update:selected', (selected) => {
             if(selected.indexOf(this.name) >=0 ){
                 this.open = true
@@ -37,6 +38,7 @@ export default {
         })
     },
     methods:{
+        //点击后 通知父组件Collapse add事件/remove事件 
         toggle(){
             if(this.open){
                 this.eventBus && this.eventBus.$emit('update:removeSelected',this.name)

@@ -34,7 +34,8 @@ export default {
             },
         },
         disabled:{
-            type: Boolean
+            type: Boolean,
+            default: false
         },
         name:{
             type: String,
@@ -69,7 +70,6 @@ export default {
         display:inline-flex;
         justify-content: center;
         align-items: center;
-        
     }
     .large{
         width: 100%;

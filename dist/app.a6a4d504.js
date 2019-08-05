@@ -12516,7 +12516,8 @@ var _default = {
       }
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     name: {
       type: String
@@ -12652,8 +12653,11 @@ var _default = {
   mounted: function mounted() {
     var _this = this;
 
-    this.eventBus.$emit('update:selected', this.selected);
+    //通知子组件Item选中信息
+    this.eventBus.$emit('update:selected', this.selected); //接收来自子组件Item的增添事件
+
     this.eventBus.$on('update:addSelected', function (name) {
+      //判断是否单选Item
       if (_this.single) {
         _this.selected = [name];
       } else {
@@ -12663,7 +12667,8 @@ var _default = {
       _this.eventBus.$emit('update:selected', _this.selected);
 
       _this.$emit('update:selected', _this.selected);
-    });
+    }); //接收来自子组件Item的删除事件
+
     this.eventBus.$on('update:removeSelected', function (name) {
       var index = _this.selected.indexOf(name);
 
@@ -12761,6 +12766,7 @@ var _default = {
   mounted: function mounted() {
     var _this = this;
 
+    //接收父组件Collapse处理后的selected信息并操作是否显示
     this.eventBus && this.eventBus.$on('update:selected', function (selected) {
       if (selected.indexOf(_this.name) >= 0) {
         _this.open = true;
@@ -12770,6 +12776,7 @@ var _default = {
     });
   },
   methods: {
+    //点击后 通知父组件Collapse add事件/remove事件 
     toggle: function toggle() {
       if (this.open) {
         this.eventBus && this.eventBus.$emit('update:removeSelected', this.name);
@@ -12835,7 +12842,94 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
+},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/toast.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+var _default = {
+  name: 'OMtoast'
+};
+exports.default = _default;
+        var $d2af09 = exports.default || module.exports;
+      
+      if (typeof $d2af09 === 'function') {
+        $d2af09 = $d2af09.options;
+      }
+    
+        /* template */
+        Object.assign($d2af09, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "toast" }, [_vm._t("default")], 2)
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$d2af09', $d2af09);
+          } else {
+            api.reload('$d2af09', $d2af09);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/plugin.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _toast = _interopRequireDefault(require("./toast"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  install: function install(Vue, options) {
+    Vue.prototype.$toast = function (message) {
+      var Constructor = Vue.extend(_toast.default);
+      var toast = new Constructor();
+      toast.$slots.default = [message];
+      toast.$mount();
+      document.body.appendChild(toast.$el);
+    };
+  }
+};
+exports.default = _default;
+},{"./toast":"src/toast.vue"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -12846,6 +12940,10 @@ var _collapse = _interopRequireDefault(require("./collapse.vue"));
 
 var _collapseItem = _interopRequireDefault(require("./collapse-item.vue"));
 
+var _toast = _interopRequireDefault(require("./toast"));
+
+var _plugin = _interopRequireDefault(require("./plugin"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue.default.component('o-button', _button.default);
@@ -12854,13 +12952,20 @@ _vue.default.component('o-collapse', _collapse.default);
 
 _vue.default.component('o-collapse-item', _collapseItem.default);
 
+_vue.default.component('o-toast', _toast.default);
+
+_vue.default.use(_plugin.default);
+
 new _vue.default({
   el: '#app',
-  data: {
-    selectedTab: ['2']
+  data: {},
+  methods: {
+    showToast: function showToast() {
+      this.$toast('我是message');
+    }
   }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./collapse.vue":"src/collapse.vue","./collapse-item.vue":"src/collapse-item.vue"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./collapse.vue":"src/collapse.vue","./collapse-item.vue":"src/collapse-item.vue","./toast":"src/toast.vue","./plugin":"src/plugin.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -12888,7 +12993,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54290" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58013" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

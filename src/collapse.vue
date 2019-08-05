@@ -28,16 +28,20 @@ export default {
         }
     },
     mounted(){
+        //通知子组件Item选中信息
         this.eventBus.$emit('update:selected',this.selected)
+        //接收来自子组件Item的增添事件
         this.eventBus.$on('update:addSelected', (name) => {
+            //判断是否单选Item
             if(this.single){
                 this.selected = [name]
             }else{
-            this.selected.push(name)
+                this.selected.push(name)
             }
             this.eventBus.$emit('update:selected',this.selected)
             this.$emit('update:selected',this.selected)
         })
+        //接收来自子组件Item的删除事件
           this.eventBus.$on('update:removeSelected', (name) => {
             let index = this.selected.indexOf(name)  
             this.selected.splice(index, 1)

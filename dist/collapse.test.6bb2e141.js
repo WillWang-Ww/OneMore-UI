@@ -12404,38 +12404,89 @@ function patchScopedSlots (instance) {
   }
 }
 
-},{}],"../src/icon.vue":[function(require,module,exports) {
+},{}],"../src/collapse.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+var _vue = _interopRequireDefault(require("vue"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
 //
 //
 //
 //
 //
 var _default = {
-  name: 'OneIcon',
-  props: ['icon']
+  name: 'OMCollapse',
+  props: {
+    single: {
+      type: Boolean,
+      default: false
+    },
+    selected: {
+      type: Array
+    }
+  },
+  data: function data() {
+    return {
+      eventBus: new _vue.default()
+    };
+  },
+  provide: function provide() {
+    return {
+      eventBus: this.eventBus
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    //通知子组件Item选中信息
+    this.eventBus.$emit('update:selected', this.selected); //接收来自子组件Item的增添事件
+
+    this.eventBus.$on('update:addSelected', function (name) {
+      //判断是否单选Item
+      if (_this.single) {
+        _this.selected = [name];
+      } else {
+        _this.selected.push(name);
+      }
+
+      _this.eventBus.$emit('update:selected', _this.selected);
+
+      _this.$emit('update:selected', _this.selected);
+    }); //接收来自子组件Item的删除事件
+
+    this.eventBus.$on('update:removeSelected', function (name) {
+      var index = _this.selected.indexOf(name);
+
+      _this.selected.splice(index, 1);
+
+      _this.eventBus.$emit('update:selected', _this.selected);
+
+      _this.$emit('update:selected', _this.selected);
+    });
+  }
 };
 exports.default = _default;
-        var $c8562a = exports.default || module.exports;
+        var $42cef2 = exports.default || module.exports;
       
-      if (typeof $c8562a === 'function') {
-        $c8562a = $c8562a.options;
+      if (typeof $42cef2 === 'function') {
+        $42cef2 = $42cef2.options;
       }
     
         /* template */
-        Object.assign($c8562a, (function () {
+        Object.assign($42cef2, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("svg", { staticClass: "icon", class: "" + _vm.icon }, [
-    _c("use", { attrs: { "xlink:href": "#icon-" + _vm.icon } })
-  ])
+  return _c("div", { attrs: { id: "collapse" } }, [_vm._t("default")], 2)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12457,9 +12508,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$c8562a', $c8562a);
+            api.createRecord('$42cef2', $42cef2);
           } else {
-            api.reload('$c8562a', $c8562a);
+            api.reload('$42cef2', $42cef2);
           }
         }
 
@@ -12470,152 +12521,12 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.common.js"}],"../src/button.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _icon = _interopRequireDefault(require("./icon"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = {
-  name: 'OMButton',
-  components: {
-    'o-icon': _icon.default
-  },
-  props: {
-    icon: {},
-    loading: {
-      type: Boolean
-    },
-    check: {
-      type: Boolean
-    },
-    size: {
-      type: String,
-      validator: function validator(value) {
-        return ['small', 'normal', 'large'].indexOf(value) > -1;
-      }
-    },
-    importance: {
-      type: String,
-      validator: function validator(value) {
-        return ['default', 'primary', 'light'].indexOf(value) > -1;
-      }
-    },
-    disabled: {
-      type: Boolean
-    },
-    name: {
-      type: String
-    }
-  },
-  methods: {
-    clickButton: function clickButton() {
-      this.$emit('click');
-    },
-    ifDisabled: function ifDisabled() {
-      if (this.disabled === true) {
-        return this.disabled;
-      }
-    }
-  }
-};
-exports.default = _default;
-        var $9e778f = exports.default || module.exports;
-      
-      if (typeof $9e778f === 'function') {
-        $9e778f = $9e778f.options;
-      }
-    
-        /* template */
-        Object.assign($9e778f, (function () {
-          var render = function() {
-  var _obj
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "button",
-    {
-      staticClass: "o-button",
-      class: ((_obj = {}),
-      (_obj["" + _vm.size] = true),
-      (_obj["" + _vm.importance] = true),
-      (_obj.disabled = _vm.disabled),
-      _obj),
-      attrs: { disabled: _vm.ifDisabled() },
-      on: {
-        click: function($event) {
-          return _vm.$emit("click")
-        }
-      }
-    },
-    [
-      _vm.icon && !_vm.loading && !_vm.check
-        ? _c("o-icon", { attrs: { icon: _vm.icon } })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.loading ? _c("o-icon", { attrs: { icon: "loading" } }) : _vm._e(),
-      _vm._v(" "),
-      _vm.check ? _c("o-icon", { attrs: { icon: "check" } }) : _vm._e(),
-      _vm._v(" "),
-      _vm._t("default")
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-9e778f",
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$9e778f', $9e778f);
-          } else {
-            api.reload('$9e778f', $9e778f);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"./icon":"../src/icon.vue","_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.common.js"}],"button.test.js":[function(require,module,exports) {
+},{"vue":"../node_modules/vue/dist/vue.common.js","_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js"}],"collapse.test.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
 
-var _button = _interopRequireDefault(require("../src/button"));
+var _collapse = _interopRequireDefault(require("../src/collapse"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12623,66 +12534,23 @@ var expect = chai.expect;
 _vue.default.config.productionTip = false;
 _vue.default.config.devtools = false; //BDD 行为测试驱动 mocha
 
-describe('Button', function () {
+describe('Collapse', function () {
   it('存在.', function () {
-    expect(_button.default).to.be.ok;
-  });
-  it('可以设置icon.', function () {
-    var Constructor = _vue.default.extend(_button.default);
-
-    var vm = new Constructor({
-      propsData: {
-        icon: 'setting'
-      }
-    }).$mount();
-    var useElement = vm.$el.querySelector('use');
-    expect(useElement.getAttribute('xlink:href')).to.equal('#icon-setting');
-    vm.$destroy();
-  });
-  it('测试Button中Icon与Loading的切换.', function () {
-    var Constructor = _vue.default.extend(_button.default);
-
-    var vm = new Constructor({
-      propsData: {
-        icon: 'setting',
-        loading: true
-      }
-    }).$mount();
-    var useElements = vm.$el.querySelectorAll('use');
-    expect(useElements.length).to.equal(1);
-    expect(useElements[0].getAttribute('xlink:href')).to.equal('#icon-loading');
-    vm.$destroy();
-  });
-  it('测试Button中Icon与Check的切换.', function () {
-    var Constructor = _vue.default.extend(_button.default);
-
-    var vm = new Constructor({
-      propsData: {
-        icon: 'setting',
-        check: true
-      }
-    }).$mount();
-    var useElements = vm.$el.querySelectorAll('use');
-    expect(useElements.length).to.equal(1);
-    expect(useElements[0].getAttribute('xlink:href')).to.equal('#icon-check');
-    vm.$destroy();
-  });
-  it('点击 button 触发 click 事件', function () {
-    var Constructor = _vue.default.extend(_button.default);
-
-    var vm = new Constructor({
-      propsData: {
-        icon: 'setting'
-      }
-    }).$mount(); //sinon库的fake函数，可以知道自己被调用了
-
-    var callback = sinon.fake();
-    vm.$on('click', callback);
-    vm.$el.click();
-    expect(callback).to.have.been.called;
-  });
+    expect(_collapse.default).to.be.ok;
+  }); //  it('可以默认展开selected.', () => {
+  //      const Constructor = Vue.extend(Collapse)
+  //      const vm = new Constructor({
+  //      propsData: {
+  //         selected: ['1']
+  //      }
+  //      }).$mount()
+  //      const divElement = vm.$el.querySelector('#collapse')
+  //      console.log(divElement)
+  //      expect(divElement.getAttribute('selected')).to.equal(['1'])
+  //      vm.$destroy()
+  //  })
 });
-},{"vue":"../node_modules/vue/dist/vue.common.js","../src/button":"../src/button.vue"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"../node_modules/vue/dist/vue.common.js","../src/collapse":"../src/collapse.vue"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -12710,7 +12578,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54401" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54307" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -12885,5 +12753,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","button.test.js"], null)
-//# sourceMappingURL=/button.test.js.map
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","collapse.test.js"], null)
+//# sourceMappingURL=/collapse.test.6bb2e141.js.map
