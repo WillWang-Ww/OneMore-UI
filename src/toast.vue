@@ -1,10 +1,10 @@
 <template>
     <div class="toast">
-        <div class="message">
-            <slot></slot>
-        </div>
+        <div class="message" v-html="$slots.default[0]"></div>
         <div id="line"></div>
-        <span v-if="closeButton" class="close" @click='onClickClose'>{{closeButton.text}}</span>
+        <span v-if="closeButton" class="close" @click='onClickClose'>
+            {{closeButton.text}}
+        </span>
     </div>    
 </template>
 <script>
@@ -17,7 +17,7 @@ export default {
         },
         reaminTime: {
             type: Number,
-            default: 100,
+            default: 5,
         },
         closeButton: {
             type: Object,
@@ -25,7 +25,7 @@ export default {
                 //props default值是对象（引用类型），则需要写成函数
                 return  {
                     text: '关闭',
-                    callback: (toast) =>{ toast.close() }
+                    callback: undefined
                 }
             }
         }
@@ -43,7 +43,10 @@ export default {
             this.$destroy()
         },
         onClickClose(){
-            this.closeButton.callback()
+            if(this.closeButton && typeof this.closeButton.callback === 'function') {
+                this.closeButton.callback(this)
+            }
+            
             this.close()
         }
     }
@@ -79,6 +82,6 @@ export default {
         word-break:keep-all;
         text-align: center;
         vertical-align: middle;
-        margin: auto;
+        margin: auto 0;
     }
 </style>

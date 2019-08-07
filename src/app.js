@@ -18,7 +18,14 @@ new Vue({
     },
     methods:{
         showToast(){
-            this.$toast('我是哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈')
+            this.$toast('我出现了惊喜吗',{
+                closeButton: {
+                    text: '关闭',
+                    callback () {
+                        console.log('click')
+                    }
+                }
+            })
         }
     }
 })
