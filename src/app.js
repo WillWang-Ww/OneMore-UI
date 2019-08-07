@@ -18,7 +18,7 @@ new Vue({
     },
     methods:{
         showToast(){
-            this.$toast('我是message')
+            this.$toast('我是哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈')
         }
     }
 })
