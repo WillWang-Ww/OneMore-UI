@@ -12849,6 +12849,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
 //
 //
 //
@@ -12867,7 +12873,7 @@ var _default = {
     },
     reaminTime: {
       type: Number,
-      default: 5
+      default: 3
     },
     closeButton: {
       type: Object,
@@ -12878,18 +12884,37 @@ var _default = {
           callback: undefined
         };
       }
+    },
+    enableHTML: {
+      type: Boolean,
+      default: false
+    },
+    position: {
+      type: String,
+      default: 'top',
+      validator: function validator(value) {
+        return ['top', 'middle', 'bottom'].indexOf(value) > -1;
+      }
+    }
+  },
+  computed: {
+    toastClass: function toastClass() {
+      return _defineProperty({}, "position-".concat(this.position), true);
     }
   },
   mounted: function mounted() {
-    var _this = this;
-
-    if (this.autoClose) {
-      setTimeout(function () {
-        _this.close();
-      }, this.reaminTime * 1000);
-    }
+    this.setReaminTime();
   },
   methods: {
+    setReaminTime: function setReaminTime() {
+      var _this = this;
+
+      if (this.autoClose) {
+        setTimeout(function () {
+          _this.close();
+        }, this.reaminTime * 1000);
+      }
+    },
     close: function close() {
       this.$el.remove();
       this.$destroy();
@@ -12916,20 +12941,28 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "toast" }, [
-    _c("div", {
-      staticClass: "message",
-      domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) }
-    }),
-    _vm._v(" "),
-    _c("div", { attrs: { id: "line" } }),
-    _vm._v(" "),
-    _vm.closeButton
-      ? _c("span", { staticClass: "close", on: { click: _vm.onClickClose } }, [
-          _vm._v("\n        " + _vm._s(_vm.closeButton.text) + "\n    ")
-        ])
-      : _vm._e()
-  ])
+  return _c(
+    "div",
+    { ref: "toast", staticClass: "toast", class: _vm.toastClass },
+    [
+      !_vm.enableHTML
+        ? _c("div", { staticClass: "message" }, [_vm._t("default")], 2)
+        : _c("div", {
+            staticClass: "message",
+            domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) }
+          }),
+      _vm._v(" "),
+      _c("div", { ref: "line", attrs: { id: "line" } }),
+      _vm._v(" "),
+      _vm.closeButton
+        ? _c(
+            "span",
+            { staticClass: "close", on: { click: _vm.onClickClose } },
+            [_vm._v("\n        " + _vm._s(_vm.closeButton.text) + "\n    ")]
+          )
+        : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12981,10 +13014,9 @@ var _default = {
     Vue.prototype.$toast = function (message, toastOptions) {
       var Constructor = Vue.extend(_toast.default);
       var toast = new Constructor({
-        propsData: {
-          closeButton: toastOptions.closeButton
-        }
+        propsData: toastOptions
       });
+      console.log(toastOptions);
       toast.$slots.default = [message];
       toast.$mount();
       document.body.appendChild(toast.$el);
@@ -13021,7 +13053,9 @@ _vue.default.use(_plugin.default);
 
 new _vue.default({
   el: '#app',
-  data: {},
+  data: {
+    enableHTML: true
+  },
   methods: {
     showToast: function showToast() {
       this.$toast('我出现了惊喜吗', {
@@ -13030,10 +13064,14 @@ new _vue.default({
           callback: function callback() {
             console.log('click');
           }
-        }
+        },
+        enableHTML: true,
+        position: 'bottom',
+        autoClose: false
       });
     }
-  }
+  },
+  created: function created() {}
 });
 },{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./collapse.vue":"src/collapse.vue","./collapse-item.vue":"src/collapse-item.vue","./toast":"src/toast.vue","./plugin":"src/plugin.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

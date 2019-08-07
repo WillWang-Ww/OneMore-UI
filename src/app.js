@@ -15,6 +15,7 @@ Vue.use(Plugin)
 new Vue({
     el:'#app',
     data:{
+        enableHTML:true
     },
     methods:{
         showToast(){
@@ -24,8 +25,14 @@ new Vue({
                     callback () {
                         console.log('click')
                     }
-                }
+                },
+                enableHTML: true,
+                position: 'bottom',
+                autoClose: false
             })
         }
+    },
+    created(){
+        
     }
 })

@@ -1,7 +1,10 @@
 <template>
-    <div class="toast">
-        <div class="message" v-html="$slots.default[0]"></div>
-        <div id="line"></div>
+    <div class="toast" ref="toast" :class="toastClass">
+        <div v-if="!enableHTML" class="message">
+            <slot></slot>
+        </div>
+        <div v-else class="message" v-html="$slots.default[0]"></div>
+        <div id="line" ref="line"></div>
         <span v-if="closeButton" class="close" @click='onClickClose'>
             {{closeButton.text}}
         </span>
@@ -17,7 +20,7 @@ export default {
         },
         reaminTime: {
             type: Number,
-            default: 5,
+            default: 3,
         },
         closeButton: {
             type: Object,
@@ -28,16 +31,37 @@ export default {
                     callback: undefined
                 }
             }
+        },
+        enableHTML: {
+            type: Boolean,
+            default: false
+        },
+        position: {
+            type: String,
+            default: 'top',
+            validator(value) {
+                return ['top','middle','bottom'].indexOf(value) > -1;
+            },
+        }
+    },
+    computed:{
+        toastClass(){
+            return {
+                [`position-${this.position}`]: true
+            }
         }
     },
     mounted(){
-        if(this.autoClose){
-            setTimeout(() => {
-                this.close()
-            }, this.reaminTime * 1000)
-        }
+        this.setReaminTime()
     },
     methods:{
+        setReaminTime(){
+            if(this.autoClose){
+                setTimeout(() => {
+                    this.close()
+                }, this.reaminTime * 1000)
+            }
+        },
         close(){
             this.$el.remove()
             this.$destroy()
@@ -46,7 +70,6 @@ export default {
             if(this.closeButton && typeof this.closeButton.callback === 'function') {
                 this.closeButton.callback(this)
             }
-            
             this.close()
         }
     }
@@ -54,13 +77,11 @@ export default {
 </script>
 <style>
     .toast{
-        width: 100%;
-        padding: 8px 12px;
+        width: 50%;
+        padding: 0px 12px;
         color: white;
         position: fixed;
-        top: 0;
         left: 50%;
-        transform: translateX(-50%);
         background-color:rgba(0,0,0,0.75);
         box-shadow: 0 0 3px 0 rgba(0,0,0,0.5);
         line-height: 1.8;
@@ -69,9 +90,10 @@ export default {
         align-content: center;
         justify-content: flex-end;
         word-break: break-all;
+        min-height: 40px;
     }
     .message{
-        margin: 0 auto;
+        margin:auto;
         text-align: center;
     }
     #line{
@@ -83,5 +105,18 @@ export default {
         text-align: center;
         vertical-align: middle;
         margin: auto 0;
+        flex-shrink: 0;
+    }
+    .position-top{
+        top: 0;
+        transform: translateX(-50%);
+    }
+    .position-middle{
+        top:50%;
+        transform: translate(-50%,-50%);
+    }
+    .position-bottom{
+        bottom: 0;
+        transform: translate(-50%);
     }
 </style>

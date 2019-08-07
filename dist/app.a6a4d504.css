@@ -85,13 +85,11 @@
     padding: 12px 10px;
 }
 .toast{
-    width: 100%;
-    padding: 8px 12px;
+    width: 50%;
+    padding: 0px 12px;
     color: white;
     position: fixed;
-    top: 0;
     left: 50%;
-    transform: translateX(-50%);
     background-color:rgba(0,0,0,0.75);
     box-shadow: 0 0 3px 0 rgba(0,0,0,0.5);
     line-height: 1.8;
@@ -100,9 +98,10 @@
     align-content: center;
     justify-content: flex-end;
     word-break: break-all;
+    min-height: 40px;
 }
 .message{
-    margin: 0 auto;
+    margin:auto;
     text-align: center;
 }
 #line{
@@ -114,4 +113,17 @@
     text-align: center;
     vertical-align: middle;
     margin: auto 0;
+    flex-shrink: 0;
+}
+.position-top{
+    top: 0;
+    transform: translateX(-50%);
+}
+.position-middle{
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+.position-bottom{
+    bottom: 0;
+    transform: translate(-50%);
 }
