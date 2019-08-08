@@ -13009,21 +13009,41 @@ var _toast = _interopRequireDefault(require("./toast"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var currentToast;
 var _default = {
   install: function install(Vue, options) {
     Vue.prototype.$toast = function (message, toastOptions) {
-      var Constructor = Vue.extend(_toast.default);
-      var toast = new Constructor({
+      console.log('开始创建toast');
+      console.log(currentToast);
+
+      if (currentToast) {
+        currentToast.close();
+        console.log('关闭啦');
+      }
+
+      currentToast = creatToast({
+        Vue: Vue,
+        message: message,
         propsData: toastOptions
       });
-      console.log(toastOptions);
-      toast.$slots.default = [message];
-      toast.$mount();
-      document.body.appendChild(toast.$el);
     };
   }
 };
 exports.default = _default;
+
+function creatToast(_ref) {
+  var Vue = _ref.Vue,
+      message = _ref.message,
+      propsData = _ref.propsData;
+  var Constructor = Vue.extend(_toast.default);
+  var toast = new Constructor({
+    propsData: propsData
+  });
+  toast.$slots.default = [message];
+  toast.$mount();
+  document.body.appendChild(toast.$el);
+  return toast;
+}
 },{"./toast":"src/toast.vue"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -13066,7 +13086,7 @@ new _vue.default({
           }
         },
         enableHTML: true,
-        position: 'bottom',
+        position: 'top',
         autoClose: false
       });
     }
@@ -13101,7 +13121,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58013" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62581" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
