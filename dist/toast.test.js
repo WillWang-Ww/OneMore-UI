@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/vue/dist/vue.common.dev.js":[function(require,module,exports) {
+})({"../node_modules/vue/dist/vue.common.dev.js":[function(require,module,exports) {
 var global = arguments[3];
 /*!
  * Vue.js v2.6.10
@@ -12058,13 +12058,13 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-},{}],"node_modules/vue/dist/vue.common.js":[function(require,module,exports) {
+},{}],"../node_modules/vue/dist/vue.common.js":[function(require,module,exports) {
 if ("development" === 'production') {
   module.exports = require('./vue.common.prod.js');
 } else {
   module.exports = require('./vue.common.dev.js');
 }
-},{"./vue.common.dev.js":"node_modules/vue/dist/vue.common.dev.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"./vue.common.dev.js":"../node_modules/vue/dist/vue.common.dev.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -12096,7 +12096,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -12131,7 +12131,7 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
+},{"./bundle-url":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
 var Vue // late bind
 var version
 var map = Object.create(null)
@@ -12404,445 +12404,7 @@ function patchScopedSlots (instance) {
   }
 }
 
-},{}],"src/icon.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-//
-//
-//
-//
-//
-var _default = {
-  name: 'OneIcon',
-  props: ['icon']
-};
-exports.default = _default;
-        var $c8562a = exports.default || module.exports;
-      
-      if (typeof $c8562a === 'function') {
-        $c8562a = $c8562a.options;
-      }
-    
-        /* template */
-        Object.assign($c8562a, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("svg", { staticClass: "icon", class: "" + _vm.icon }, [
-    _c("use", { attrs: { "xlink:href": "#icon-" + _vm.icon } })
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: null,
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$c8562a', $c8562a);
-          } else {
-            api.reload('$c8562a', $c8562a);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/button.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _icon = _interopRequireDefault(require("./icon"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = {
-  name: 'OMButton',
-  components: {
-    'o-icon': _icon.default
-  },
-  props: {
-    icon: {},
-    loading: {
-      type: Boolean
-    },
-    check: {
-      type: Boolean
-    },
-    size: {
-      type: String,
-      validator: function validator(value) {
-        return ['small', 'normal', 'large'].indexOf(value) > -1;
-      }
-    },
-    importance: {
-      type: String,
-      validator: function validator(value) {
-        return ['default', 'primary', 'light'].indexOf(value) > -1;
-      }
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    name: {
-      type: String
-    }
-  },
-  methods: {
-    clickButton: function clickButton() {
-      this.$emit('click');
-    },
-    ifDisabled: function ifDisabled() {
-      if (this.disabled === true) {
-        return this.disabled;
-      }
-    }
-  }
-};
-exports.default = _default;
-        var $9e778f = exports.default || module.exports;
-      
-      if (typeof $9e778f === 'function') {
-        $9e778f = $9e778f.options;
-      }
-    
-        /* template */
-        Object.assign($9e778f, (function () {
-          var render = function() {
-  var _obj
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "button",
-    {
-      staticClass: "o-button",
-      class: ((_obj = {}),
-      (_obj["" + _vm.size] = true),
-      (_obj["" + _vm.importance] = true),
-      (_obj.disabled = _vm.disabled),
-      _obj),
-      attrs: { disabled: _vm.ifDisabled() },
-      on: {
-        click: function($event) {
-          return _vm.$emit("click")
-        }
-      }
-    },
-    [
-      _vm.icon && !_vm.loading && !_vm.check
-        ? _c("o-icon", { attrs: { icon: _vm.icon } })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.loading ? _c("o-icon", { attrs: { icon: "loading" } }) : _vm._e(),
-      _vm._v(" "),
-      _vm.check ? _c("o-icon", { attrs: { icon: "check" } }) : _vm._e(),
-      _vm._v(" "),
-      _vm._t("default")
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-9e778f",
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$9e778f', $9e778f);
-          } else {
-            api.reload('$9e778f', $9e778f);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"./icon":"src/icon.vue","_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/collapse.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _vue = _interopRequireDefault(require("vue"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-var _default = {
-  name: 'OMCollapse',
-  props: {
-    single: {
-      type: Boolean,
-      default: false
-    },
-    selected: {
-      type: Array
-    }
-  },
-  data: function data() {
-    return {
-      eventBus: new _vue.default()
-    };
-  },
-  provide: function provide() {
-    return {
-      eventBus: this.eventBus
-    };
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    //通知子组件Item选中信息
-    this.eventBus.$emit('update:selected', this.selected); //接收来自子组件Item的增添事件
-
-    this.eventBus.$on('update:addSelected', function (name) {
-      //判断是否单选Item
-      if (_this.single) {
-        _this.selected = [name];
-      } else {
-        _this.selected.push(name);
-      }
-
-      _this.eventBus.$emit('update:selected', _this.selected);
-
-      _this.$emit('update:selected', _this.selected);
-    }); //接收来自子组件Item的删除事件
-
-    this.eventBus.$on('update:removeSelected', function (name) {
-      var index = _this.selected.indexOf(name);
-
-      _this.selected.splice(index, 1);
-
-      _this.eventBus.$emit('update:selected', _this.selected);
-
-      _this.$emit('update:selected', _this.selected);
-    });
-  }
-};
-exports.default = _default;
-        var $42cef2 = exports.default || module.exports;
-      
-      if (typeof $42cef2 === 'function') {
-        $42cef2 = $42cef2.options;
-      }
-    
-        /* template */
-        Object.assign($42cef2, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "collapse" } }, [_vm._t("default")], 2)
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: null,
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$42cef2', $42cef2);
-          } else {
-            api.reload('$42cef2', $42cef2);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"vue":"node_modules/vue/dist/vue.common.js","_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"src/collapse-item.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = {
-  name: 'OMCollapseItem',
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-    name: {
-      type: String,
-      required: true
-    }
-  },
-  data: function data() {
-    return {
-      open: false
-    };
-  },
-  inject: ['eventBus'],
-  mounted: function mounted() {
-    var _this = this;
-
-    //接收父组件Collapse处理后的selected信息并操作是否显示
-    this.eventBus && this.eventBus.$on('update:selected', function (selected) {
-      if (selected.indexOf(_this.name) >= 0) {
-        _this.open = true;
-      } else {
-        _this.open = false;
-      }
-    });
-  },
-  methods: {
-    //点击后 通知父组件Collapse add事件/remove事件 
-    toggle: function toggle() {
-      if (this.open) {
-        this.eventBus && this.eventBus.$emit('update:removeSelected', this.name);
-      } else {
-        this.eventBus && this.eventBus.$emit('update:addSelected', this.name);
-      }
-    }
-  }
-};
-exports.default = _default;
-        var $061b2e = exports.default || module.exports;
-      
-      if (typeof $061b2e === 'function') {
-        $061b2e = $061b2e.options;
-      }
-    
-        /* template */
-        Object.assign($061b2e, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "collapseItem", on: { click: _vm.toggle } }, [
-    _c("div", { staticClass: "title" }, [
-      _vm._v("\n        " + _vm._s(_vm.title) + "  \n    ")
-    ]),
-    _vm._v(" "),
-    _vm.open
-      ? _c("div", { staticClass: "content" }, [_vm._t("default")], 2)
-      : _vm._e()
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-061b2e",
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$061b2e', $061b2e);
-          } else {
-            api.reload('$061b2e', $061b2e);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/toast.vue":[function(require,module,exports) {
+},{}],"../src/toast.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13001,104 +12563,85 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/plugin.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _toast = _interopRequireDefault(require("./toast"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var currentToast;
-var _default = {
-  install: function install(Vue, options) {
-    Vue.prototype.$toast = function (message, toastOptions) {
-      if (currentToast) {
-        currentToast.close();
-      }
-
-      currentToast = creatToast({
-        Vue: Vue,
-        message: message,
-        propsData: toastOptions,
-        onClose: function onClose() {
-          currentToast = null;
-        }
-      });
-    };
-  }
-};
-exports.default = _default;
-
-function creatToast(_ref) {
-  var Vue = _ref.Vue,
-      message = _ref.message,
-      propsData = _ref.propsData,
-      onClose = _ref.onClose;
-  var Constructor = Vue.extend(_toast.default);
-  var toast = new Constructor({
-    propsData: propsData
-  });
-  toast.$slots.default = [message];
-  toast.$mount();
-  toast.$on('close', onClose);
-  document.body.appendChild(toast.$el);
-  return toast;
-}
-},{"./toast":"src/toast.vue"}],"src/app.js":[function(require,module,exports) {
+},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.common.js"}],"toast.test.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
 
-var _button = _interopRequireDefault(require("./button"));
-
-var _collapse = _interopRequireDefault(require("./collapse.vue"));
-
-var _collapseItem = _interopRequireDefault(require("./collapse-item.vue"));
-
-var _toast = _interopRequireDefault(require("./toast"));
-
-var _plugin = _interopRequireDefault(require("./plugin"));
+var _toast = _interopRequireDefault(require("../src/toast"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_vue.default.component('o-button', _button.default);
+var expect = chai.expect;
+_vue.default.config.productionTip = false;
+_vue.default.config.devtools = false; //BDD 行为测试驱动 mocha
 
-_vue.default.component('o-collapse', _collapse.default);
+describe('Toast', function () {
+  it('存在.', function () {
+    expect(_toast.default).to.be.ok;
+  });
+  describe('props', function () {
+    it('接收 autoClose', function (done) {
+      var div = document.createElement('div');
+      document.body.appendChild(div);
 
-_vue.default.component('o-collapse-item', _collapseItem.default);
+      var Constructor = _vue.default.extend(_toast.default);
 
-_vue.default.component('o-toast', _toast.default);
-
-_vue.default.use(_plugin.default);
-
-new _vue.default({
-  el: '#app',
-  data: {
-    enableHTML: true
-  },
-  methods: {
-    showToast: function showToast() {
-      this.$toast('我出现了惊喜吗', {
-        closeButton: {
-          text: '关闭',
-          callback: function callback() {
-            console.log('click');
-          }
-        },
-        enableHTML: true,
-        position: 'top',
-        autoClose: 3
+      var vm = new Constructor({
+        propsData: {
+          autoClose: 1
+        }
+      }).$mount(div);
+      vm.$on('close', function () {
+        expect(document.body.contains(vm.$el)).to.eq(false);
+        done();
       });
-    }
-  },
-  created: function created() {}
+    });
+    it('接收 closeButton', function () {
+      var callback = sinon.fake();
+
+      var Constructor = _vue.default.extend(_toast.default);
+
+      var vm = new Constructor({
+        propsData: {
+          closeButton: {
+            text: '关闭',
+            callback: callback
+          }
+        }
+      }).$mount();
+      var closeButton = vm.$el.querySelector('.close');
+      expect(closeButton.textContent.trim()).to.eq('关闭');
+      closeButton.click();
+      expect(callback).to.have.been.called;
+    });
+    it('接收 enableHTML', function () {
+      var Constructor = _vue.default.extend(_toast.default);
+
+      var vm = new Constructor({
+        propsData: {
+          enableHTML: true
+        }
+      });
+      vm.$slots.default = ['<strong id="test">Hi</strong>'];
+      vm.$mount();
+      var strong = vm.$el.querySelector('#test');
+      expect(strong).to.exist;
+    });
+    it('接收 position', function () {
+      var Constructor = _vue.default.extend(_toast.default);
+
+      var vm = new Constructor({
+        propsData: {
+          position: 'bottom'
+        }
+      }).$mount();
+      var toast = vm.$el.querySelector('.toast');
+      expect(toast.classList.contains('position-bottom')).to.eq(true);
+    });
+  });
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./collapse.vue":"src/collapse.vue","./collapse-item.vue":"src/collapse-item.vue","./toast":"src/toast.vue","./plugin":"src/plugin.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"../node_modules/vue/dist/vue.common.js","../src/toast":"../src/toast.vue"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -13126,7 +12669,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62581" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65072" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -13301,5 +12844,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/app.js"], null)
-//# sourceMappingURL=/app.a6a4d504.js.map
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","toast.test.js"], null)
+//# sourceMappingURL=/toast.test.js.map

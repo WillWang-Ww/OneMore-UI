@@ -1,26 +1,27 @@
 <template>
-    <div class="toast" ref="toast" :class="toastClass">
-        <div v-if="!enableHTML" class="message">
-            <slot></slot>
-        </div>
-        <div v-else class="message" v-html="$slots.default[0]"></div>
-        <div id="line" ref="line"></div>
-        <span v-if="closeButton" class="close" @click='onClickClose'>
-            {{closeButton.text}}
-        </span>
-    </div>    
+    <div class="animationWrapper" >
+        <div class="toast" ref="toast" :class="toastClass">
+            <div v-if="!enableHTML" class="message">
+              <slot></slot>
+            </div>
+            <div v-else class="message" v-html="$slots.default[0]"></div>
+            <div id="line" ref="line"></div>
+            <span v-if="closeButton" class="close" @click='onClickClose'>
+                {{closeButton.text}}
+            </span>
+            </div> 
+    </div>
 </template>
 <script>
 export default {
     name: 'OMtoast',
     props: {
         autoClose: {
-            type: Boolean,
-            default: true,
-        },
-        reaminTime: {
-            type: Number,
+            type: [Boolean,Number],
             default: 3,
+            validator(value) {
+                return value === false || typeof value === 'number' ;
+            },
         },
         closeButton: {
             type: Object,
@@ -59,11 +60,12 @@ export default {
             if(this.autoClose){
                 setTimeout(() => {
                     this.close()
-                }, this.reaminTime * 1000)
+                }, this.autoClose * 1000)
             }
         },
         close(){
             this.$el.remove()
+            this.$emit('close')
             this.$destroy()
         },
         onClickClose(){
@@ -76,14 +78,19 @@ export default {
 }
 </script>
 <style>
+    .animationWrapper{
+        position: fixed;
+        left: 50%;
+        animation: fade 0.5s linear;
+    }
     .toast{
         width: 50%;
         padding: 0px 12px;
         color: white;
         position: fixed;
-        left: 50%;
         background-color:rgba(0,0,0,0.75);
         box-shadow: 0 0 3px 0 rgba(0,0,0,0.5);
+        border-radius: 3px;
         line-height: 1.8;
         font-size: 14px;
         display: flex;
@@ -118,5 +125,13 @@ export default {
     .position-bottom{
         bottom: 0;
         transform: translate(-50%);
+    }
+    @keyframes fade {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
     }
 </style>

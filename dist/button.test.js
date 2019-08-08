@@ -12516,7 +12516,8 @@ var _default = {
       }
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     name: {
       type: String
@@ -12710,7 +12711,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54401" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65072" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
