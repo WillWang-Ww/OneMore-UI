@@ -13049,7 +13049,125 @@ function creatToast(_ref) {
   document.body.appendChild(toast.$el);
   return toast;
 }
-},{"./toast":"src/toast.vue"}],"src/app.js":[function(require,module,exports) {
+},{"./toast":"src/toast.vue"}],"src/switch.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'OMSwitch',
+  props: {
+    value: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data: function data() {
+    return {
+      checkedValue: this.value
+    };
+  }
+};
+exports.default = _default;
+        var $148d27 = exports.default || module.exports;
+      
+      if (typeof $148d27 === 'function') {
+        $148d27 = $148d27.options;
+      }
+    
+        /* template */
+        Object.assign($148d27, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "om-switch-wrapper" }, [
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.checkedValue,
+          expression: "checkedValue"
+        }
+      ],
+      staticClass: "om-switch-input",
+      attrs: { type: "checkbox" },
+      domProps: {
+        checked: Array.isArray(_vm.checkedValue)
+          ? _vm._i(_vm.checkedValue, null) > -1
+          : _vm.checkedValue
+      },
+      on: {
+        change: function($event) {
+          var $$a = _vm.checkedValue,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false
+          if (Array.isArray($$a)) {
+            var $$v = null,
+              $$i = _vm._i($$a, $$v)
+            if ($$el.checked) {
+              $$i < 0 && (_vm.checkedValue = $$a.concat([$$v]))
+            } else {
+              $$i > -1 &&
+                (_vm.checkedValue = $$a
+                  .slice(0, $$i)
+                  .concat($$a.slice($$i + 1)))
+            }
+          } else {
+            _vm.checkedValue = $$c
+          }
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("div", { staticClass: "om-switch-button" }),
+    _vm._v("\n    " + _vm._s(_vm.checkedValue) + "\n")
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$148d27', $148d27);
+          } else {
+            api.reload('$148d27', $148d27);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -13064,6 +13182,8 @@ var _toast = _interopRequireDefault(require("./toast"));
 
 var _plugin = _interopRequireDefault(require("./plugin"));
 
+var _switch = _interopRequireDefault(require("./switch"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue.default.component('o-button', _button.default);
@@ -13074,31 +13194,16 @@ _vue.default.component('o-collapse-item', _collapseItem.default);
 
 _vue.default.component('o-toast', _toast.default);
 
+_vue.default.component('o-switch', _switch.default);
+
 _vue.default.use(_plugin.default);
 
 new _vue.default({
   el: '#app',
-  data: {
-    enableHTML: true
-  },
-  methods: {
-    showToast: function showToast() {
-      this.$toast('我出现了惊喜吗', {
-        closeButton: {
-          text: '关闭',
-          callback: function callback() {
-            console.log('click');
-          }
-        },
-        enableHTML: true,
-        position: 'top',
-        autoClose: 3
-      });
-    }
-  },
-  created: function created() {}
+  data: {},
+  methods: {}
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./collapse.vue":"src/collapse.vue","./collapse-item.vue":"src/collapse-item.vue","./toast":"src/toast.vue","./plugin":"src/plugin.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./collapse.vue":"src/collapse.vue","./collapse-item.vue":"src/collapse-item.vue","./toast":"src/toast.vue","./plugin":"src/plugin.js","./switch":"src/switch.vue"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -13126,7 +13231,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62581" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51986" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

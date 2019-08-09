@@ -57,7 +57,7 @@ export default {
     .o-button{
         color: white;
         border: none;
-        height: 41px;
+        height: 40px;
         font-size: 16px;
         overflow: hidden;
         text-align: center;
