@@ -13130,8 +13130,9 @@ exports.default = _default;
       }
     }),
     _vm._v(" "),
-    _c("div", { staticClass: "om-switch-button" }),
-    _vm._v("\n    " + _vm._s(_vm.checkedValue) + "\n")
+    _c("div", { staticClass: "om-switch-button" }, [
+      _vm._v(_vm._s(_vm.checkedValue))
+    ])
   ])
 }
 var staticRenderFns = []
