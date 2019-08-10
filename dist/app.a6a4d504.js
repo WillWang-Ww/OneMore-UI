@@ -13062,7 +13062,6 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
   name: 'OMSwitch',
   props: {
@@ -13073,8 +13072,17 @@ var _default = {
   },
   data: function data() {
     return {
-      checkedValue: this.value
+      checkedValue: this.value,
+      isChecked: false,
+      unChecked: true
     };
+  },
+  methods: {
+    watchCheck: function watchCheck() {
+      console.log('change');
+      this.isChecked = !this.isChecked;
+      this.unChecked = !this.unChecked;
+    }
   }
 };
 exports.default = _default;
@@ -13090,50 +13098,55 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "om-switch-wrapper" }, [
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.checkedValue,
-          expression: "checkedValue"
-        }
-      ],
-      staticClass: "om-switch-input",
-      attrs: { type: "checkbox" },
-      domProps: {
-        checked: Array.isArray(_vm.checkedValue)
-          ? _vm._i(_vm.checkedValue, null) > -1
-          : _vm.checkedValue
-      },
-      on: {
-        change: function($event) {
-          var $$a = _vm.checkedValue,
-            $$el = $event.target,
-            $$c = $$el.checked ? true : false
-          if (Array.isArray($$a)) {
-            var $$v = null,
-              $$i = _vm._i($$a, $$v)
-            if ($$el.checked) {
-              $$i < 0 && (_vm.checkedValue = $$a.concat([$$v]))
+  return _c(
+    "div",
+    { staticClass: "OMSwitchWrapper", on: { click: _vm.watchCheck } },
+    [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.checkedValue,
+            expression: "checkedValue"
+          }
+        ],
+        staticClass: "OMSwitchInput",
+        attrs: { type: "checkbox" },
+        domProps: {
+          checked: Array.isArray(_vm.checkedValue)
+            ? _vm._i(_vm.checkedValue, null) > -1
+            : _vm.checkedValue
+        },
+        on: {
+          change: function($event) {
+            var $$a = _vm.checkedValue,
+              $$el = $event.target,
+              $$c = $$el.checked ? true : false
+            if (Array.isArray($$a)) {
+              var $$v = null,
+                $$i = _vm._i($$a, $$v)
+              if ($$el.checked) {
+                $$i < 0 && (_vm.checkedValue = $$a.concat([$$v]))
+              } else {
+                $$i > -1 &&
+                  (_vm.checkedValue = $$a
+                    .slice(0, $$i)
+                    .concat($$a.slice($$i + 1)))
+              }
             } else {
-              $$i > -1 &&
-                (_vm.checkedValue = $$a
-                  .slice(0, $$i)
-                  .concat($$a.slice($$i + 1)))
+              _vm.checkedValue = $$c
             }
-          } else {
-            _vm.checkedValue = $$c
           }
         }
-      }
-    }),
-    _vm._v(" "),
-    _c("div", { staticClass: "om-switch-button" }, [
-      _vm._v(_vm._s(_vm.checkedValue))
-    ])
-  ])
+      }),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "OMSwitchButton",
+        class: { checked: _vm.isChecked, unChecked: _vm.unChecked }
+      })
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13142,7 +13155,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-148d27",
             functional: undefined
           };
         })());
@@ -13232,7 +13245,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51986" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52633" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

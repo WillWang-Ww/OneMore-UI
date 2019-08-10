@@ -140,7 +140,7 @@
         opacity: 1;
     }
 }
-.om-switch-wrapper{
+.OMSwitchWrapper[data-v-148d27]{
     position: relative;
     appearance: none;
     height: 48px;
@@ -149,14 +149,15 @@
     border:1px solid #ccc;
     background-color: #fc9153;
 }
-.om-switch-input{
+.OMSwitchInput[data-v-148d27]{
     position: absolute;
     opacity: 0;
     height: 48px;
     width: 96px;
     z-index: 1;
+    transition: 0.4s;
 }
-.om-switch-button{
+.OMSwitchButton[data-v-148d27]{
     position: absolute;
     top: 0;
     left: 0;
@@ -166,4 +167,30 @@
     background-color: white;
     border:1px solid #ccc;
     box-shadow:  0 1px 3px rgba(0,0,0,0.4);
+}
+.checked[data-v-148d27]{
+    animation: checked-data-v-148d27 0.4s linear;
+    animation-fill-mode:forwards;
+}
+.unChecked[data-v-148d27]{
+    animation: unChecked-data-v-148d27 0.4s linear;
+    animation-fill-mode:forwards;
+}
+@keyframes checked-data-v-148d27 {
+0%{
+        left: 0;
+}
+100%{
+        left: 100%;
+        transform: translateX(-100%)
+}
+}
+@keyframes unChecked-data-v-148d27 {
+0%{
+        left: 100%;
+        transform: translateX(-100%)
+}
+100%{
+        left: 0;
+}
 }

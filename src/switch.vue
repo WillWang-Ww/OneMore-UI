@@ -1,8 +1,7 @@
 <template>
-    <div class="om-switch-wrapper">
-        <input class="om-switch-input" type="checkbox" v-model="checkedValue"/>
-        <div class="om-switch-button">{{checkedValue}}</div>
-        
+    <div class="OMSwitchWrapper" @click="watchCheck">
+        <input class="OMSwitchInput" type="checkbox" v-model="checkedValue"/>
+        <div class="OMSwitchButton" :class="{checked: isChecked , unChecked: unChecked}"></div>
     </div>
 </template>
 <script>
@@ -12,17 +11,26 @@ export default {
         value: {
             type: Boolean,
             default: false
-        }
+        },
     },
     data() {
         return {
-            checkedValue: this.value
+            checkedValue: this.value,
+            isChecked: false,
+            unChecked: true
+        }
+    },
+    methods:{
+        watchCheck(){
+            console.log('change')
+            this.isChecked = !this.isChecked
+            this.unChecked = !this.unChecked
         }
     }
 }
 </script>
-<style>
-    .om-switch-wrapper{
+<style scoped>
+    .OMSwitchWrapper{
         position: relative;
         appearance: none;
         height: 48px;
@@ -31,14 +39,15 @@ export default {
         border:1px solid #ccc;
         background-color: #fc9153;
     }
-    .om-switch-input{
+    .OMSwitchInput{
         position: absolute;
         opacity: 0;
         height: 48px;
         width: 96px;
         z-index: 1;
+        transition: 0.4s;
     }
-    .om-switch-button{
+    .OMSwitchButton{
         position: absolute;
         top: 0;
         left: 0;
@@ -48,5 +57,31 @@ export default {
         background-color: white;
         border:1px solid #ccc;
         box-shadow:  0 1px 3px rgba(0,0,0,0.4);
+    }
+    .checked{
+        animation: checked 0.4s linear;
+        animation-fill-mode:forwards;
+    }
+    .unChecked{
+        animation: unChecked 0.4s linear;
+        animation-fill-mode:forwards;
+    }
+    @keyframes checked {
+        0%{
+            left: 0;
+        }
+        100%{
+            left: 100%;
+            transform: translateX(-100%)
+        }
+    }
+    @keyframes unChecked {
+        0%{
+            left: 100%;
+            transform: translateX(-100%) 
+        }
+        100%{
+            left: 0;
+        }
     }
 </style>
