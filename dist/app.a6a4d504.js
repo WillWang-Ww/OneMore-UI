@@ -13078,16 +13078,18 @@ var _default = {
   data: function data() {
     return {
       checkedValue: this.value,
-      isChecked: false,
-      unChecked: true
+      isChecked: undefined,
+      unChecked: undefined
     };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.isChecked = false;
+  },
   methods: {
     watchCheck: function watchCheck() {
       if (!this.disabled) {
+        this.unChecked = this.isChecked;
         this.isChecked = !this.isChecked;
-        this.unChecked = !this.unChecked;
       }
     }
   }
@@ -13110,7 +13112,7 @@ exports.default = _default;
     { staticClass: "OMSwitchWrapper", on: { click: _vm.watchCheck } },
     [
       _c("div", {
-        class: { wrapperActive: _vm.isChecked, wrapperUnActive: !_vm.isChecked }
+        class: { wrapperActive: _vm.isChecked, wrapperUnActive: _vm.unChecked }
       }),
       _vm._v(" "),
       _c("input", {

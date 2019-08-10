@@ -1,6 +1,6 @@
 <template>
     <div class="OMSwitchWrapper" @click="watchCheck" >
-        <div :class="{wrapperActive: isChecked ,wrapperUnActive: !isChecked}"></div>
+        <div :class="{wrapperActive: isChecked ,wrapperUnActive: unChecked}"></div>
         <input class="OMSwitchInput" type="checkbox" v-model="checkedValue" :disabled='disabled'/>
         <div class="OMSwitchButton" :class="{checked: isChecked , unChecked: unChecked}"></div>
     </div>
@@ -21,18 +21,18 @@ export default {
     data() {
         return {
             checkedValue: this.value,
-            isChecked: false,
-            unChecked: true
+            isChecked: undefined,
+            unChecked: undefined
         }
     },
     mounted(){
-
+        this.isChecked = false
     },
     methods:{
         watchCheck(){
             if(!this.disabled) {
+                this.unChecked = this.isChecked
                 this.isChecked = !this.isChecked
-                this.unChecked = !this.unChecked
             }
         },
     }
