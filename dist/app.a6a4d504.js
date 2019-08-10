@@ -13062,10 +13062,15 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   name: 'OMSwitch',
   props: {
     value: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
       type: Boolean,
       default: false
     }
@@ -13077,11 +13082,13 @@ var _default = {
       unChecked: true
     };
   },
+  mounted: function mounted() {},
   methods: {
     watchCheck: function watchCheck() {
-      console.log('change');
-      this.isChecked = !this.isChecked;
-      this.unChecked = !this.unChecked;
+      if (!this.disabled) {
+        this.isChecked = !this.isChecked;
+        this.unChecked = !this.unChecked;
+      }
     }
   }
 };
@@ -13102,6 +13109,10 @@ exports.default = _default;
     "div",
     { staticClass: "OMSwitchWrapper", on: { click: _vm.watchCheck } },
     [
+      _c("div", {
+        class: { wrapperActive: _vm.isChecked, wrapperUnActive: !_vm.isChecked }
+      }),
+      _vm._v(" "),
       _c("input", {
         directives: [
           {
@@ -13112,7 +13123,7 @@ exports.default = _default;
           }
         ],
         staticClass: "OMSwitchInput",
-        attrs: { type: "checkbox" },
+        attrs: { type: "checkbox", disabled: _vm.disabled },
         domProps: {
           checked: Array.isArray(_vm.checkedValue)
             ? _vm._i(_vm.checkedValue, null) > -1
