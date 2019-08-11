@@ -16,7 +16,7 @@ export default {
         disabled: {
             type: Boolean,
             default: false
-        },
+        }, 
     },
     data() {
         return {
@@ -44,7 +44,7 @@ export default {
         appearance: none;
         height: 24px;
         width: 48px;
-        border-radius: 28px;
+        border-radius: 24px;
         border:1px solid #ccc;
         background-color: white;
         overflow: hidden;
@@ -115,10 +115,10 @@ export default {
     }
     @keyframes wrapperShow {
         from{
-            opacity: 0;
+            background-color:white;
         }
         to{
-            opacity: 1;
+            background-color: #fc9153;
         }
     }
     @keyframes wrapperUnShow {

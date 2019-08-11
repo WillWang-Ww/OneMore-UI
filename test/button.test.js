@@ -50,15 +50,11 @@ const expect = chai.expect;
      it('点击 button 触发 click 事件', () => {
          const Constructor = Vue.extend(Button)
          const vm = new Constructor({
-         propsData: {
-             icon: 'setting',
-         }
          }).$mount()
         //sinon库的fake函数，可以知道自己被调用了
          const callback = sinon.fake();
          vm.$on('click', callback)
          vm.$el.click()
          expect(callback).to.have.been.called
-
      })
  })
