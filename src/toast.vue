@@ -77,7 +77,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
     .animationWrapper{
         position: fixed;
         left: 50%;

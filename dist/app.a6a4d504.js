@@ -12975,7 +12975,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-d2af09",
             functional: undefined
           };
         })());
@@ -13112,6 +13112,7 @@ exports.default = _default;
     { staticClass: "OMSwitchWrapper", on: { click: _vm.watchCheck } },
     [
       _c("div", {
+        staticClass: "BGWrapper",
         class: { wrapperActive: _vm.isChecked, wrapperUnActive: _vm.unChecked }
       }),
       _vm._v(" "),
@@ -13194,6 +13195,102 @@ render._withStripped = true
       
       }
     })();
+},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/message-box.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'OMMessageBox'
+};
+exports.default = _default;
+        var $4fabd5 = exports.default || module.exports;
+      
+      if (typeof $4fabd5 === 'function') {
+        $4fabd5 = $4fabd5.options;
+      }
+    
+        /* template */
+        Object.assign($4fabd5, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "wrapper" }, [
+      _c("div", { staticClass: "OMMessageTitle" }, [
+        _vm._v("\n        提示   \n    ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "OMMessageContent" }, [
+        _vm._v("\n        Hello World\n    ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "rowLine" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "OMMessageOptions" }, [
+        _c("div", { staticClass: "confirm" }, [_vm._v("确认")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "close" }, [_vm._v("关闭")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$4fabd5', $4fabd5);
+          } else {
+            api.reload('$4fabd5', $4fabd5);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
 },{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -13211,6 +13308,8 @@ var _toastPlugin = _interopRequireDefault(require("./toastPlugin"));
 
 var _switch = _interopRequireDefault(require("./switch"));
 
+var _messageBox = _interopRequireDefault(require("./message-box.vue"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue.default.component('o-button', _button.default);
@@ -13223,14 +13322,20 @@ _vue.default.component('o-toast', _toast.default);
 
 _vue.default.component('o-switch', _switch.default);
 
+_vue.default.component('o-message-box', _messageBox.default);
+
 _vue.default.use(_toastPlugin.default);
 
 new _vue.default({
   el: '#app',
   data: {},
-  methods: {}
+  methods: {
+    showMessageBox: function showMessageBox() {
+      console.log('想要show一下');
+    }
+  }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./collapse.vue":"src/collapse.vue","./collapse-item.vue":"src/collapse-item.vue","./toast":"src/toast.vue","./toastPlugin":"src/toastPlugin.js","./switch":"src/switch.vue"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./collapse.vue":"src/collapse.vue","./collapse-item.vue":"src/collapse-item.vue","./toast":"src/toast.vue","./toastPlugin":"src/toastPlugin.js","./switch":"src/switch.vue","./message-box.vue":"src/message-box.vue"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -13258,7 +13363,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49716" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50334" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -84,12 +84,12 @@
     width: 100%;
     padding: 12px 10px;
 }
-.animationWrapper{
+.animationWrapper[data-v-d2af09]{
     position: fixed;
     left: 50%;
-    animation: fade 0.5s linear;
+    animation: fade-data-v-d2af09 0.5s linear;
 }
-.toast{
+.toast[data-v-d2af09]{
     width: 50%;
     padding: 0px 12px;
     color: white;
@@ -105,40 +105,40 @@
     word-break: break-all;
     min-height: 40px;
 }
-.message{
+.message[data-v-d2af09]{
     margin:auto;
     text-align: center;
 }
-#line{
+#line[data-v-d2af09]{
     border-left:1px solid white;
     margin:0 12px;
 }
-.close{
+.close[data-v-d2af09]{
     word-break:keep-all;
     text-align: center;
     vertical-align: middle;
     margin: auto 0;
     flex-shrink: 0;
 }
-.position-top{
+.position-top[data-v-d2af09]{
     top: 0;
     transform: translateX(-50%);
 }
-.position-middle{
+.position-middle[data-v-d2af09]{
     top:50%;
     transform: translate(-50%,-50%);
 }
-.position-bottom{
+.position-bottom[data-v-d2af09]{
     bottom: 0;
     transform: translate(-50%);
 }
-@keyframes fade {
-    0%{
+@keyframes fade-data-v-d2af09 {
+0%{
         opacity: 0;
-    }
-    100%{
+}
+100%{
         opacity: 1;
-    }
+}
 }
 .OMSwitchWrapper[data-v-148d27]{
     position: relative;
@@ -156,6 +156,7 @@
     height: 24px;
     width: 48px;
     z-index: 1;
+    transition: all 0.2s;
 }
 .OMSwitchButton[data-v-148d27]{
     position: absolute;
@@ -167,66 +168,59 @@
     background-color: white;
     border:1px solid #ccc;
     box-shadow:  0 1px 3px rgba(0,0,0,0.4);
+    transition: all 0.2s;
 }
-.checked[data-v-148d27]{
-    animation: checked-data-v-148d27 0.2s linear;
-    animation-fill-mode:forwards;
+.BGWrapper[data-v-148d27]{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 24px;
+    border-radius: 24px;
 }
 .wrapperActive[data-v-148d27]{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 48px;
-    height: 24px;
-    border-radius: 24px;
     background-color: #fc9153;
-    animation: wrapperShow-data-v-148d27 0.2s linear;
+    transition: all 0.2s;
 }
 .wrapperUnActive[data-v-148d27]{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 48px;
-    height: 24px;
-    border-radius: 24px;
     background-color:white;
-    animation: wrapperUnShow-data-v-148d27 0.2s linear;
+    transition: all 0.2s;
+}
+.checked[data-v-148d27]{
+    left: 100%;
+    transform: translateX(-100%);
 }
 .unChecked[data-v-148d27]{
-    animation: unChecked-data-v-148d27 0.2s linear;
-    animation-fill-mode:forwards;
+    left: 0;
 }
-@keyframes checked-data-v-148d27 {
-0%{
-        left: 0;
+.wrapper{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
 }
-100%{
-        left: 100%;
-        transform: translateX(-100%)
+.OMMessageTitle{
+    text-align: center;
+    padding: 8px 0px;
+    font-size: 16px;
 }
+.OMMessageContent{
+    text-align: center;
+    padding: 0px 12px;
+    font-size: 14px;
 }
-@keyframes unChecked-data-v-148d27 {
-0%{
-        left: 100%;
-        transform: translateX(-100%)
+.OMMessageOptions{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
 }
-100%{
-        left: 0;
+.close{
+    padding: 8px 12px;
+    width: 100%;
 }
-}
-@keyframes wrapperShow-data-v-148d27 {
-from{
-        background-color:white;
-}
-to{
-        background-color: #fc9153;
-}
-}
-@keyframes wrapperUnShow-data-v-148d27 {
-from{
-        background-color: #fc9153;
-}
-to{
-        background-color:white;
-}
+.confirm{
+    padding: 8px 12px;
+    width: 100%;        
 }

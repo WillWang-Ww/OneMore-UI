@@ -1,9 +1,9 @@
-.animationWrapper{
+.animationWrapper[data-v-d2af09]{
     position: fixed;
     left: 50%;
-    animation: fade 0.5s linear;
+    animation: fade-data-v-d2af09 0.5s linear;
 }
-.toast{
+.toast[data-v-d2af09]{
     width: 50%;
     padding: 0px 12px;
     color: white;
@@ -19,38 +19,38 @@
     word-break: break-all;
     min-height: 40px;
 }
-.message{
+.message[data-v-d2af09]{
     margin:auto;
     text-align: center;
 }
-#line{
+#line[data-v-d2af09]{
     border-left:1px solid white;
     margin:0 12px;
 }
-.close{
+.close[data-v-d2af09]{
     word-break:keep-all;
     text-align: center;
     vertical-align: middle;
     margin: auto 0;
     flex-shrink: 0;
 }
-.position-top{
+.position-top[data-v-d2af09]{
     top: 0;
     transform: translateX(-50%);
 }
-.position-middle{
+.position-middle[data-v-d2af09]{
     top:50%;
     transform: translate(-50%,-50%);
 }
-.position-bottom{
+.position-bottom[data-v-d2af09]{
     bottom: 0;
     transform: translate(-50%);
 }
-@keyframes fade {
-    0%{
+@keyframes fade-data-v-d2af09 {
+0%{
         opacity: 0;
-    }
-    100%{
+}
+100%{
         opacity: 1;
-    }
+}
 }

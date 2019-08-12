@@ -1,6 +1,6 @@
 <template>
     <div class="OMSwitchWrapper" @click="watchCheck" >
-        <div :class="{wrapperActive: isChecked ,wrapperUnActive: unChecked}"></div>
+        <div class='BGWrapper' :class="{wrapperActive: isChecked ,wrapperUnActive: unChecked}"></div>
         <input class="OMSwitchInput" type="checkbox" v-model="checkedValue" :disabled='disabled'/>
         <div class="OMSwitchButton" :class="{checked: isChecked , unChecked: unChecked}"></div>
     </div>
@@ -55,6 +55,7 @@ export default {
         height: 24px;
         width: 48px;
         z-index: 1;
+        transition: all 0.2s;
     }
     .OMSwitchButton{
         position: absolute;
@@ -66,67 +67,29 @@ export default {
         background-color: white;
         border:1px solid #ccc;
         box-shadow:  0 1px 3px rgba(0,0,0,0.4);
+        transition: all 0.2s;
     }
-    .checked{
-        animation: checked 0.2s linear;
-        animation-fill-mode:forwards;
+    .BGWrapper{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 48px;
+        height: 24px;
+        border-radius: 24px;
     }
     .wrapperActive{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 48px;
-        height: 24px;
-        border-radius: 24px;
         background-color: #fc9153;
-        animation: wrapperShow 0.2s linear;
+        transition: all 0.2s;
     }
     .wrapperUnActive{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 48px;
-        height: 24px;
-        border-radius: 24px;
         background-color:white;
-        animation: wrapperUnShow 0.2s linear;
+        transition: all 0.2s;
+    }
+    .checked{
+        left: 100%;
+        transform: translateX(-100%);
     }
     .unChecked{
-        animation: unChecked 0.2s linear;
-        animation-fill-mode:forwards;
-    }
-    @keyframes checked {
-        0%{
-            left: 0;
-        }
-        100%{
-            left: 100%;
-            transform: translateX(-100%)
-        }
-    }
-    @keyframes unChecked {
-        0%{
-            left: 100%;
-            transform: translateX(-100%) 
-        }
-        100%{
-            left: 0;
-        }
-    }
-    @keyframes wrapperShow {
-        from{
-            background-color:white;
-        }
-        to{
-            background-color: #fc9153;
-        }
-    }
-    @keyframes wrapperUnShow {
-        from{
-            background-color: #fc9153;
-        }
-        to{
-            background-color:white;
-        }
+        left: 0;
     }
 </style>
