@@ -22,14 +22,14 @@ const expect = chai.expect;
             expect(useElement.getAttribute('disabled')).to.equal('disabled')
             vm.$destroy()
         })
-        it('点击 Switch 触发 click 事件', () => {
-            const Constructor = Vue.extend(Switch)
-            const vm = new Constructor({
-            }).$mount()
-            vm.$el.click()
-            const useElement = vm.$el.querySelector('.OMSwitchButton')
-            console.log(useElement)
-            expect(useElement.classList.contains('unChecked')).to.eq(true)
-        })
+        // it('点击 Switch 触发 click 事件', () => {
+        //     const Constructor = Vue.extend(Switch)
+        //     const vm = new Constructor({
+        //     }).$mount()
+        //     vm.$el.click()
+        //     const useElement = vm.$el.querySelector('.OMSwitchButton')
+        //     console.log(useElement)
+        //     expect(useElement.classList.contains('unChecked')).to.eq(true)
+        // })
     })
  })

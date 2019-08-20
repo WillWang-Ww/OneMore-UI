@@ -13271,6 +13271,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
 var _default = {
   name: 'OMInput',
   components: {
@@ -13316,7 +13320,21 @@ exports.default = _default;
     [
       _c("input", {
         attrs: { type: "text", disabled: _vm.disabled, readonly: _vm.readonly },
-        domProps: { value: _vm.value }
+        domProps: { value: _vm.value },
+        on: {
+          change: function($event) {
+            return _vm.$emit("change", $event.target.value)
+          },
+          input: function($event) {
+            return _vm.$emit("input", $event.target.value)
+          },
+          focus: function($event) {
+            return _vm.$emit("focus", $event.target.value)
+          },
+          blur: function($event) {
+            return _vm.$emit("blur", $event.target.value)
+          }
+        }
       }),
       _vm._v(" "),
       _vm.error
@@ -13407,8 +13425,8 @@ new _vue.default({
   el: '#app',
   data: {},
   methods: {
-    showMessageBox: function showMessageBox() {
-      console.log('想要show一下');
+    inputChange: function inputChange(e) {
+      console.log(e);
     }
   }
 });

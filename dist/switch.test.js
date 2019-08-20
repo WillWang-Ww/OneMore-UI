@@ -12467,6 +12467,7 @@ exports.default = _default;
     { staticClass: "OMSwitchWrapper", on: { click: _vm.watchCheck } },
     [
       _c("div", {
+        staticClass: "BGWrapper",
         class: { wrapperActive: _vm.isChecked, wrapperUnActive: _vm.unChecked }
       }),
       _vm._v(" "),
@@ -12578,16 +12579,15 @@ describe('Switch', function () {
       var useElement = vm.$el.querySelector('input');
       expect(useElement.getAttribute('disabled')).to.equal('disabled');
       vm.$destroy();
-    });
-    it('点击 Switch 触发 click 事件', function () {
-      var Constructor = _vue.default.extend(_switch.default);
-
-      var vm = new Constructor({}).$mount();
-      vm.$el.click();
-      var useElement = vm.$el.querySelector('.OMSwitchButton');
-      console.log(useElement);
-      expect(useElement.classList.contains('unChecked')).to.eq(true);
-    });
+    }); // it('点击 Switch 触发 click 事件', () => {
+    //     const Constructor = Vue.extend(Switch)
+    //     const vm = new Constructor({
+    //     }).$mount()
+    //     vm.$el.click()
+    //     const useElement = vm.$el.querySelector('.OMSwitchButton')
+    //     console.log(useElement)
+    //     expect(useElement.classList.contains('unChecked')).to.eq(true)
+    // })
   });
 });
 },{"vue":"../node_modules/vue/dist/vue.common.js","../src/switch":"../src/switch.vue"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -12618,7 +12618,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50015" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50776" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

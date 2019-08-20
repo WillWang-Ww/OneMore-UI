@@ -22,9 +22,8 @@ new Vue({
 
     },
     methods:{
-        showMessageBox(){
-            console.log('想要show一下')
-
+        inputChange(e){
+            console.log(e)
         }
     },
 })
