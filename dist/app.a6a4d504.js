@@ -13614,7 +13614,8 @@ var _default = {
   computed: {
     classes: function classes() {
       return {
-        active: this.active
+        active: this.active,
+        disabled: this.disabled
       };
     }
   },
@@ -13630,8 +13631,10 @@ var _default = {
     });
   },
   methods: {
-    xxx: function xxx() {
-      this.eventBus.$emit("update:selected", this.name, this);
+    onclick: function onclick() {
+      if (!this.disabled) {
+        this.eventBus.$emit("update:selected", this.name, this);
+      }
     }
   }
 };
@@ -13650,7 +13653,12 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "tabs-item", class: _vm.classes, on: { click: _vm.xxx } },
+    {
+      staticClass: "tabs-item",
+      class: _vm.classes,
+      attrs: { disabled: _vm.disabled },
+      on: { click: _vm.onclick }
+    },
     [_vm._t("default")],
     2
   )
@@ -13946,7 +13954,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60474" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50662" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
