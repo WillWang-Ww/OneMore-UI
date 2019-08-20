@@ -31,6 +31,9 @@ export default {
         }
     },
     mounted(){
+        if (this.$children.length === 0) {
+            throw new Error('tab的Children应该是tab相关组件（tab-head,tab-body）')
+        }
         this.$children.forEach((vm) => {
           if (vm.$options.name === 'OMTabHead') {
             vm.$children.forEach((childVm) => {

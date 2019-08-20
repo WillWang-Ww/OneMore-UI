@@ -22,7 +22,7 @@ export default {
 </script>
 <style lang="scss">
     $tab-height: 40px;
-    $blue: blue;
+    $line-color: #fc9153;
     $border-color: #ddd;
     .tabs-head {
     display: flex;
@@ -33,7 +33,7 @@ export default {
     > .line {
         position: absolute;
         bottom: 0;
-        border-bottom: 1px solid $blue;
+        border-bottom: 1px solid $line-color;
         transition: all 350ms;
     }
     > .actions-wrapper {

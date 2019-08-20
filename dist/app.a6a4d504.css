@@ -239,7 +239,7 @@
   .tabs-head > .line {
     position: absolute;
     bottom: 0;
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid #fc9153;
     transition: all 350ms; }
   .tabs-head > .actions-wrapper {
     margin-left: auto;
@@ -256,27 +256,16 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  color: #444;
 }
 .tabs-item.active[data-v-af8cd0] {
-    color: blue;
-    font-weight: bold;
+    color: #fc9153;
 }
 .tabs-item.disabled[data-v-af8cd0] {
-    color: grey;
+    color: #bbb;
     cursor: not-allowed;
 }
 
 .tabs-pane {
-  flex-shrink: 0;
-  padding: 1em 1em;
-  cursor: pointer;
-  height: 100%;
-  display: flex;
-  align-items: center; }
-  .tabs-pane.active {
-    color: blue;
-    font-weight: bold; }
-  .tabs-pane.disabled {
-    color: grey;
-    cursor: not-allowed; }
+  padding: 1em; }
 

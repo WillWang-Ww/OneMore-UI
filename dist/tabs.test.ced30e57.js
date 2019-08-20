@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/vue/dist/vue.common.dev.js":[function(require,module,exports) {
+})({"../node_modules/vue/dist/vue.common.dev.js":[function(require,module,exports) {
 var global = arguments[3];
 /*!
  * Vue.js v2.6.10
@@ -12058,64 +12058,13 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-},{}],"node_modules/vue/dist/vue.common.js":[function(require,module,exports) {
+},{}],"../node_modules/vue/dist/vue.common.js":[function(require,module,exports) {
 if ("development" === 'production') {
   module.exports = require('./vue.common.prod.js');
 } else {
   module.exports = require('./vue.common.dev.js');
 }
-},{"./vue.common.dev.js":"node_modules/vue/dist/vue.common.dev.js"}],"src/svg.js":[function(require,module,exports) {
-!function (h) {
-  var a,
-      l = '<svg><symbol id="icon-check" viewBox="0 0 1024 1024"><path d="M 507.733 1002.67 c -129.946 0 -252.058 -50.5856 -343.962 -142.438 s -142.438 -214.016 -142.438 -343.91 c 0 -129.946 50.5856 -252.058 142.438 -343.962 s 214.016 -142.49 343.962 -142.49 c 129.946 0 252.058 50.5856 343.962 142.49 s 142.438 214.016 142.438 343.962 s -50.5856 252.058 -142.438 343.91 c -91.8528 91.8528 -214.016 142.438 -343.962 142.438 Z M 507.733 81.0667 c -239.974 0 -435.2 195.226 -435.2 435.2 s 195.226 435.2 435.2 435.2 s 435.2 -195.226 435.2 -435.2 s -195.226 -435.2 -435.2 -435.2 Z"  ></path><path d="M 405.333 721.067 c -6.5536 0 -13.1072 -2.5088 -18.1248 -7.4752 l -153.6 -153.6 c -9.984 -9.984 -9.984 -26.2144 0 -36.1984 s 26.2144 -9.984 36.1984 0 l 135.475 135.475 l 340.275 -340.275 c 9.984 -9.984 26.2144 -9.984 36.1984 0 s 9.984 26.2144 0 36.1984 l -358.4 358.4 c -5.0176 5.0176 -11.5712 7.4752 -18.1248 7.4752 Z"  ></path></symbol><symbol id="icon-setting" viewBox="0 0 1024 1024"><path d="M 1000.65 417.792 c -5.3248 -28.4672 -22.528 -46.4896 -43.4176 -46.08 l -4.3008 0 c -71.68 0 -130.048 -57.9584 -130.048 -129.024 c 0 -23.3472 11.264 -49.152 11.264 -49.3568 c 11.0592 -24.7808 2.6624 -55.0912 -19.8656 -70.656 l -1.2288 -0.8192 l -124.928 -69.0176 l -1.2288 -0.6144 c -7.3728 -3.2768 -15.5648 -4.9152 -24.1664 -4.9152 c -17.8176 0 -35.2256 6.9632 -46.6944 18.8416 c -15.36 15.5648 -63.488 56.32 -102.195 56.32 c -39.3216 0 -87.6544 -41.3696 -103.014 -57.344 c -11.4688 -12.0832 -29.0816 -19.2512 -47.104 -19.2512 c -8.3968 0 -16.384 1.6384 -23.7568 4.7104 l -1.4336 0.6144 l -129.434 70.656 l -1.2288 0.8192 c -22.3232 15.5648 -30.9248 45.8752 -19.8656 70.4512 c 0.2048 0.2048 11.264 26.0096 11.264 49.3568 c 0 71.0656 -58.368 129.024 -130.048 129.024 l -4.3008 0 c -20.8896 -0.4096 -37.888 17.8176 -43.4176 46.08 c -0.4096 2.2528 -10.4448 55.5008 -10.4448 97.28 c 0 41.7792 10.0352 95.0272 10.4448 97.28 c 5.3248 28.0576 22.1184 46.08 42.5984 46.08 l 5.12 0 c 71.68 0 130.048 57.7536 130.048 129.024 c 0 23.3472 -11.264 49.152 -11.264 49.3568 c -11.0592 24.7808 -2.6624 55.0912 19.8656 70.656 l 1.2288 0.8192 l 122.675 68.1984 l 1.2288 0.4096 c 7.3728 3.2768 15.5648 4.9152 23.9616 4.9152 c 18.0224 0 35.6352 -7.3728 46.8992 -19.6608 c 14.336 -15.5648 64.3072 -59.8016 104.448 -59.8016 c 40.3456 0 89.7024 44.032 105.267 61.0304 c 11.4688 12.4928 29.0816 19.8656 47.3088 19.8656 c 8.3968 0 16.384 -1.6384 23.552 -4.7104 l 1.4336 -0.6144 l 127.181 -69.8368 l 1.2288 -0.8192 c 22.3232 -15.5648 30.9248 -45.8752 19.8656 -70.4512 c -0.2048 -0.2048 -11.264 -26.0096 -11.264 -49.3568 c 0 -71.0656 58.368 -129.024 130.048 -129.024 l 4.3008 0 c 20.8896 0.4096 38.0928 -17.8176 43.4176 -46.08 c 0.4096 -2.2528 10.4448 -55.5008 10.4448 -97.28 C 1011.1 473.293 1001.06 420.045 1000.65 417.792 L 1000.65 417.792 Z M 942.899 600.474 c -99.5328 5.12 -178.995 87.04 -178.995 187.187 c 0 33.5872 13.1072 65.536 15.9744 72.0896 l -118.784 65.1264 l -0.2048 0 c -1.6384 0 -3.2768 -0.6144 -3.8912 -1.024 c -2.048 -2.2528 -19.2512 -20.6848 -44.032 -38.912 c -37.0688 -27.2384 -72.0896 -41.1648 -104.448 -41.1648 c -32.1536 0 -66.9696 13.5168 -103.834 40.3456 c -24.576 18.0224 -41.7792 35.84 -43.8272 38.2976 c -0.6144 0.4096 -2.048 1.024 -3.8912 1.024 l -0.2048 0 l -114.483 -63.488 c 2.8672 -6.5536 15.9744 -38.7072 15.9744 -72.2944 c 0 -100.147 -79.4624 -182.067 -178.995 -187.187 c -1.4336 -7.9872 -9.216 -52.0192 -9.216 -85.1968 c 0 -33.1776 7.7824 -77.4144 9.216 -85.1968 c 99.5328 -5.12 178.995 -87.04 178.995 -187.187 c 0 -33.3824 -13.1072 -65.536 -15.9744 -72.0896 l 121.037 -65.9456 l 0.4096 0 c 2.048 0 3.8912 0.8192 4.5056 1.2288 c 2.048 2.048 19.0464 19.456 43.4176 36.6592 c 36.2496 25.6 70.4512 38.7072 101.99 38.7072 c 31.1296 0 65.1264 -12.6976 101.171 -37.888 c 24.3712 -16.9984 41.1648 -33.9968 43.2128 -36.0448 c 0.6144 -0.4096 2.4576 -1.2288 4.5056 -1.2288 l 0.4096 0 l 116.736 64.512 c -2.8672 6.5536 -15.9744 38.7072 -15.9744 72.0896 c 0 100.147 79.4624 182.067 178.995 187.187 c 1.4336 7.9872 9.216 52.0192 9.216 85.1968 C 952.115 548.25 944.333 592.486 942.899 600.474 L 942.899 600.474 Z M 508.928 342.63 c -95.4368 0 -173.056 77.0048 -173.056 171.827 s 77.6192 171.827 173.056 171.827 s 173.056 -77.0048 173.056 -171.827 S 604.365 342.63 508.928 342.63 L 508.928 342.63 Z M 508.928 627.917 c -62.8736 0 -114.278 -50.7904 -114.278 -113.459 c 0 -62.464 51.2 -113.459 114.278 -113.459 c 62.8736 0 114.278 50.7904 114.278 113.459 S 572.006 627.917 508.928 627.917 L 508.928 627.917 Z"  ></path></symbol><symbol id="icon-zan" viewBox="0 0 1024 1024"><path d="M895.876947 612.428294c-0.00307-24.451902-7.306406-44.169989-21.26021-57.765635 11.045567-13.922081 21.073968-38.645159 21.073968-61.033052l-0.00307-0.242524c-1.217734-49.976228-48.848545-84.881203-115.830075-84.881203L626.548896 408.505881c11.148921-36.051077 16.07614-77.485769 13.934361-118.278847-2.436492-46.408983-13.833053-87.676875-32.089859-116.202559-10.674107-16.665565-23.408129-29.02301-37.849026-36.733623-11.406794-6.090718-23.567765-9.179057-36.145222-9.179057-27.122731 0-72.621994 11.471262-72.621994 88.303138 0 38.010709-1.577938 75.829036-20.59813 120.455419-8.363482 15.294334-62.974263 71.937402-117.904317 71.937402L212.079186 408.807756c-21.741163 0-41.21468 7.992021-56.313563 23.11137-17.865903 17.890462-27.683503 44.160779-27.643594 73.970712l0.045025 0.927115 28.829606 304.199257c4.075829 54.429657 33.410947 84.402295 82.613556 84.403319 0.149403 0.002047 23.152303 0.188288 40.220027 0.188288 8.861832 0 17.120936-0.070608 22.091134-0.190335 16.84976-0.553609 30.108738-10.371208 40.762379-18.260899l3.212158-2.375094c3.231601-2.394537 7.501858-5.558599 9.766434-6.464225 1.788739 0.791016 4.821819 2.278903 7.572466 3.628644 5.628184 2.759857 13.33368 6.541997 21.718651 10.106172 19.905352 8.407484 48.598858 13.8351 73.120344 13.8351l232.555543 0c109.080348 0 125.368312-55.06206 125.368312-87.883583 0-10.915607-1.732457-19.47147-6.02932-28.186969 33.93488-12.010545 53.774741-36.377512 53.774741-66.998927 0-9.695826-2.931772-23.857361-8.553817-34.497699C873.771487 666.73106 895.919926 641.20878 895.876947 612.428294zM810.448276 643.932822l-14.33959 0 0.635473 45.115524 6.78759 2.571568c2.697435 0.998747 9.014304 3.337002 9.030677 20.107967 0 19.717064-32.095999 26.877137-53.66934 26.877137l-9.898441-0.182149-0.638543 45.005007 7.944949 1.771343c2.90312 0.64673 8.305153 1.852184 8.280594 19.798928 0 11.907191-4.864798 20.868283-14.872732 27.40721-12.609179 8.238638-32.707936 12.416797-59.736523 12.416797L449.143417 844.822155c-9.468652 0-31.29168-6.058996-44.058448-12.233626-9.623171-4.652973-23.780613-12.465916-33.148981-17.635659-0.461511-0.25685-0.912789-0.50449-1.348718-0.744967L370.58727 451.726242c61.025888-19.799952 109.239983-71.485101 122.024148-95.916537l0.325411-0.683569c13.552667-31.515784 21.399379-64.909335 21.399379-142.334729 0-17.301038 3.228531-24.572652 5.937223-27.626197 2.288113-2.578732 5.662977-3.63069 11.648294-3.63069 8.261151 0 25.382087 11.17655 34.251082 25.056676 13.888312 21.684882 22.646789 57.328683 23.433712 95.355765 0.873903 42.215474-7.747451 83.897805-24.27487 117.369128l-0.481977 0.977257-9.697873 39.464827 225.877447-0.049119c30.606065 1.734504 63.025429 14.051017 63.175855 33.552164l-0.297782 9.719362c-0.38374 5.658883-2.922563 19.071358-9.417487 24.457018-6.570649 5.458315-11.655458 6.350638-12.583596 6.472412l-9.972119-0.213871 0.465604 10.094916-0.308015 36.576033 8.710382 1.173732c4.149507 0.571005 11.382235 2.317789 14.427594 4.411473 6.200212 4.252861 9.651824 13.360286 9.239432 24.364921-0.161682 4.469801-4.257977 12.799514-13.044084 21.35947C822.781162 640.09747 814.492382 643.932822 810.448276 643.932822zM318.870398 459.69268l0 371.557364c-4.03592 2.867304-7.269567 5.230118-9.076726 6.561439-5.079692 3.745301-9.174963 6.226818-10.896164 7.052626-13.258978 0.323365-50.435693 0.055259-61.83737-0.035816l-0.743944-0.00614c-12.706393 0-24.679076-13.285584-27.974122-30.969339l-28.754904-315.412646c0.217964-17.324574 13.755282-37.129642 31.639604-39.068807L318.870398 459.69268z"  ></path></symbol><symbol id="icon-icon" viewBox="0 0 1024 1024"><path d="M256.4517899999998 576.215534"  ></path><path d="M320.4125199999998 384.33334200000013"  ></path><path d="M184.23911799999996 636.2467690000001L516.78191 939.52505l1.0509349999999997-0.8554840000000005c12.841469000000004 13.075806999999996 31.488155000000006 21.309327999999997 52.250014000000014 21.309327999999994 38.73316299999999-1.0658141036401503e-14 70.13228999999998-28.63620100000003 70.13228999999997-63.96073100000004-5.329070518200751e-15-16.33606-6.725168000000007-31.233352000000004-17.774829000000015-42.53781499999999l0.2302439999999999-0.187265-331.1521190000001-302.0093819999999c-23.537066000000006-21.46589399999999-23.53706600000002-56.591903-2.1316282072803006e-14-78.057797L620.9155949999999 172.81595100000004l-0.160659-0.13302999999999998c12.046360999999994-11.484565000000002 19.460213999999997-27.04496000000001 19.46021399999999-44.192501000000014-1.0658141036401503e-14-35.324529999999996-31.39912700000002-63.96073099999999-70.13229000000003-63.96073099999998-21.286816 7.105427357601002e-15-40.34487 8.66126400000001-53.206806 22.317285000000027l-0.039909-0.032746-332.5970269999999 303.32740000000007C110.02895200000012 457.82003000000003 110.028952 568.5673430000002 184.23911799999996 636.2467690000001z"  ></path></symbol><symbol id="icon-zan1" viewBox="0 0 1024 1024"><path d="M272.128 463.04v504.8a24 24 0 0 1-24.032 23.936H128.192a96 96 0 0 1-95.936-95.968V512a96.064 96.064 0 0 1 95.936-95.936h119.904c132.32 0 239.872-107.616 239.872-239.904v-23.936a120.128 120.128 0 0 1 120-120 120.064 120.064 0 0 1 119.872 120c0 56.896-2.272 152.384-16.224 215.968l112.32 0.448c16.416 0 30.176 1.664 43.328 5.152a168.096 168.096 0 0 1 118.784 205.664c-20.736 77.216-124.384 338.144-128.8 349.216l-1.472 3.136a120.256 120.256 0 0 1-99.104 59.52 26.336 26.336 0 0 1-4.8 0.448H392a23.936 23.936 0 0 1 0-48h355.584a25.408 25.408 0 0 1 4.256-0.384 71.264 71.264 0 0 0 61.504-34.176c9.248-23.232 107.264-270.784 126.4-342.208a120.096 120.096 0 0 0-84.864-146.88 118.528 118.528 0 0 0-31.072-3.52l-144-0.544a23.904 23.904 0 0 1-22.304-32.544c14.016-36.8 22.368-123.232 22.368-231.296a72 72 0 0 0-71.904-72 72.064 72.064 0 0 0-72 72v23.936c0 150.72-116.256 274.624-263.84 286.88z m-48 0.96H128.224a48 48 0 0 0-48 48v383.808a48 48 0 0 0 48 48h95.968V464z"  ></path></symbol><symbol id="icon-loading" viewBox="0 0 1024 1024"><path d="M511.109565 0c27.826087 0 50.309565 22.572522 50.309565 50.309565v154.802087a50.309565 50.309565 0 1 1-100.61913 0V50.398609A50.265043 50.265043 0 0 1 511.109565 0z" fill="#EAEAEA" ></path><path d="M776.325565 76.04313c24.041739 13.890783 32.322783 44.744348 18.432 68.786087l-77.467826 134.144a50.398609 50.398609 0 0 1-87.218087-50.309565l77.467826-134.010435a50.354087 50.354087 0 0 1 68.786087-18.610087z" fill="#9B9B9B" ></path><path d="M943.994435 260.452174a50.309565 50.309565 0 0 1-18.476522 68.741565l-134.010435 77.467826a50.309565 50.309565 0 1 1-50.309565-87.262608l134.010435-77.467827a50.44313 50.44313 0 0 1 68.786087 18.476522z" fill="#9D9B9B" ></path><path d="M1021.462261 501.270261a50.309565 50.309565 0 0 1-50.309565 50.309565h-154.802087a50.309565 50.309565 0 1 1 0-100.61913h154.802087a50.176 50.176 0 0 1 50.309565 50.309565z" fill="#A2A0A0" ></path><path d="M943.994435 761.677913a50.398609 50.398609 0 0 1-68.786087 18.476522l-134.010435-77.467826a50.398609 50.398609 0 0 1 50.309565-87.262609l134.010435 77.467826c24.041739 13.890783 32.367304 44.744348 18.476522 68.786087z" fill="#A9A9A9" ></path><path d="M776.325565 965.676522a50.309565 50.309565 0 0 1-68.786087-18.432l-77.467826-134.010435a50.309565 50.309565 0 1 1 87.262609-50.309565l77.467826 134.010435a50.309565 50.309565 0 0 1-18.476522 68.786086z" fill="#B1B1B1" ></path><path d="M511.109565 1022.085565a50.309565 50.309565 0 0 1-50.309565-50.309565V816.973913a50.309565 50.309565 0 1 1 100.61913 0v154.802087a50.309565 50.309565 0 0 1-50.309565 50.309565z" fill="#B9B9B9" ></path><path d="M245.76 965.676522a50.398609 50.398609 0 0 1-18.432-68.741565l77.467826-134.010435a50.398609 50.398609 0 0 1 87.262609 50.309565l-77.467826 134.010435a50.398609 50.398609 0 0 1-68.786087 18.476521z" fill="#C1C0C0" ></path><path d="M58.056348 761.677913a50.309565 50.309565 0 0 1 18.432-68.741565l134.054956-77.467826a50.309565 50.309565 0 1 1 50.309566 87.262608l-134.010435 77.423305a50.398609 50.398609 0 0 1-68.786087-18.476522z" fill="#CAC9C9" ></path><path d="M0.667826 501.270261c0-27.826087 22.528-50.309565 50.309565-50.309565h154.802087a50.309565 50.309565 0 1 1 0 100.61913H50.977391a50.309565 50.309565 0 0 1-50.309565-50.309565z" fill="#D4D4D4" ></path><path d="M58.056348 260.452174a50.398609 50.398609 0 0 1 68.741565-18.521044l134.054957 77.467827a50.398609 50.398609 0 0 1-50.309566 87.262608l-134.010434-77.467826a50.309565 50.309565 0 0 1-18.476522-68.786087z" fill="#DBDBDB" ></path><path d="M245.76 76.04313a50.309565 50.309565 0 0 1 68.786087 18.476522l77.467826 134.054957a50.309565 50.309565 0 1 1-87.262609 50.309565l-77.423304-134.010435a50.44313 50.44313 0 0 1 18.476522-68.830609z" fill="#E2E2E2" ></path></symbol><symbol id="icon-jian" viewBox="0 0 1024 1024"><path d="M830.08 554.794667a18.901333 18.901333 0 0 0-22.058667 15.402666 322.901333 322.901333 0 0 1-318.464 266.410667c-178.389333 0-323.498667-145.109333-323.498666-323.498667a323.413333 323.413333 0 0 1 591.701333-180.906666 319.829333 319.829333 0 0 1 50.261333 123.818666 19.072 19.072 0 0 0 37.461334-6.656A356.949333 356.949333 0 0 0 789.333333 310.912a361.301333 361.301333 0 0 0-299.733333-159.36A361.429333 361.429333 0 0 0 128 513.109333c0 199.381333 162.218667 361.557333 361.557333 361.557334a360.874667 360.874667 0 0 0 355.925334-297.770667 19.029333 19.029333 0 0 0-15.36-22.101333"  ></path><path d="M284.16 512a20.138667 20.138667 0 0 0 0 40.277333H720.213333a20.138667 20.138667 0 0 0 0-40.277333H284.16z"  ></path></symbol><symbol id="icon-uncheck" viewBox="0 0 1024 1024"><path d="M 922.261 562.646 a 22.9909 22.9909 0 0 0 -26.7711 18.6414 a 391.883 391.883 0 0 1 -386.601 323.686 c -216.447 0 -392.503 -176.161 -392.503 -392.608 a 392.4 392.4 0 0 1 392.556 -392.608 a 392.556 392.556 0 0 1 386.394 322.962 a 23.0945 23.0945 0 0 0 45.5161 -8.12971 a 433.93 433.93 0 0 0 -68.1444 -167.616 A 438.59 438.59 0 0 0 508.889 73.5703 A 438.641 438.641 0 0 0 70.1437 512.367 c 0 241.923 196.822 438.797 438.746 438.797 a 437.916 437.916 0 0 0 432.065 -361.745 a 23.0429 23.0429 0 0 0 -18.6931 -26.7711"  ></path><path d="M 710.682 307.934 a 24.4926 24.4926 0 0 0 -34.6418 0 l -169.844 169.844 l -169.844 -169.844 a 24.4926 24.4926 0 0 0 -34.5382 34.5382 l 169.844 169.844 l -169.844 169.844 a 24.4926 24.4926 0 0 0 34.5382 34.5901 l 169.844 -169.844 l 169.844 169.844 a 24.3373 24.3373 0 0 0 34.5901 0 a 24.4926 24.4926 0 0 0 0 -34.5382 l -169.844 -169.844 l 169.844 -169.844 a 24.4926 24.4926 0 0 0 0 -34.5901"  ></path></symbol><symbol id="icon-RectangleCopy1" viewBox="0 0 1024 1024"><path d="M888.68161 857.569677l-175.091014-175.091014a21.331751 21.331751 0 0 0-30.163096 0c-0.85327 0.85327-1.279905 1.919858-1.919858 2.858454-100.98451 98.382037-259.650076 112.162348-377.699987 32.338935C166.175196 624.669617 129.228603 438.059457 221.424431 301.621576A295.444755 295.444755 0 0 1 357.307687 192.061702a301.716289 301.716289 0 0 1 280.811173 30.632395 301.716289 301.716289 0 0 1 133.238118 248.941537 294.719475 294.719475 0 0 1-22.355675 114.082205 21.331751 21.331751 0 0 0 39.421076 16.297458 336.572371 336.572371 0 0 0 25.598102-130.550317 344.337128 344.337128 0 0 0-152.01006-284.138927A344.294465 344.294465 0 0 0 341.522191 152.512635 337.681622 337.681622 0 0 0 186.056388 277.772679c-105.378851 155.935101-63.227311 369.167287 93.859705 475.271417a344.635773 344.635773 0 0 0 193.180339 59.046287 341.180029 341.180029 0 0 0 225.177966-84.601725l160.244116 160.244115a21.246424 21.246424 0 0 0 30.163096 0 21.331751 21.331751 0 0 0 0-30.163096"  ></path></symbol><symbol id="icon-RectangleCopy2" viewBox="0 0 1024 1024"><path d="M834.389333 739.541333h-56.917333v-170.666666a18.944 18.944 0 1 0-37.930667 0v170.666666H284.458667V512A227.797333 227.797333 0 0 1 512 284.458667a226.56 226.56 0 0 1 221.44 175.018666 18.986667 18.986667 0 0 0 36.949333-8.746666c-26.965333-113.92-124.074667-194.432-239.445333-202.624v-58.453334a18.986667 18.986667 0 0 0-37.888 0V247.466667c-137.557333 9.813333-246.528 124.586667-246.528 264.533333v227.541333H189.610667a18.986667 18.986667 0 0 0 0 37.973334h644.778666a18.986667 18.986667 0 0 0 0-37.973334M606.805333 815.402667H415.573333a18.986667 18.986667 0 0 0 0 37.930666h191.232a18.986667 18.986667 0 0 0 0-37.930666"  ></path></symbol><symbol id="icon-RectangleCopy3" viewBox="0 0 1024 1024"><path d="M517.632 552.149333c-108.714667 0-197.162667-85.546667-197.162667-190.72 0-38.314667 11.690667-75.306667 33.877334-106.922666C391.04 202.026667 452.138667 170.666667 517.632 170.666667c65.408 0 126.464 31.274667 163.2 83.712 7.765333 11.093333 14.250667 22.869333 19.413333 35.072a21.333333 21.333333 0 1 1-39.338666 16.64 147.285333 147.285333 0 0 0-15.018667-27.221334C617.130667 237.824 569.173333 213.333333 517.632 213.333333c-51.626667 0-99.584 24.533333-128.426667 65.621334a143.445333 143.445333 0 0 0-26.069333 82.432c0 81.664 69.290667 148.096 154.453333 148.096 63.402667 0 119.722667-36.437333 143.36-92.8a21.333333 21.333333 0 0 1 39.338667 16.512c-30.378667 72.277333-102.016 118.954667-182.656 118.954666"  ></path><path d="M303.829333 627.456c-49.92 0-90.453333 41.088-90.453333 91.605333C213.333333 769.578667 253.866667 810.666667 303.786667 810.666667h416.341333C770.133333 810.666667 810.666667 769.578667 810.666667 719.061333c0-50.517333-40.533333-91.605333-90.453334-91.605333H303.786667zM720.213333 853.333333H303.829333C230.442667 853.333333 170.709333 793.088 170.709333 719.061333 170.666667 645.034667 230.4 584.789333 303.786667 584.789333h416.341333C793.6 584.789333 853.333333 645.034667 853.333333 719.061333 853.333333 793.088 793.6 853.333333 720.213333 853.333333z"  ></path></symbol><symbol id="icon-RectangleCopy4" viewBox="0 0 1024 1024"><path d="M830.08 573.866667a18.944 18.944 0 0 0-22.058667 15.445333 322.901333 322.901333 0 0 1-318.464 266.368c-178.389333 0-323.498667-145.066667-323.498666-323.498667a323.413333 323.413333 0 0 1 591.701333-180.906666 319.829333 319.829333 0 0 1 50.261333 123.818666 19.072 19.072 0 0 0 37.461334-6.656A356.949333 356.949333 0 0 0 789.333333 329.984 361.301333 361.301333 0 0 0 489.557333 170.666667 361.429333 361.429333 0 0 0 128 532.181333c0 199.381333 162.218667 361.557333 361.557333 361.557334a360.874667 360.874667 0 0 0 355.925334-297.770667 19.029333 19.029333 0 0 0-15.36-22.058667"  ></path><path d="M509.696 572.16c69.12-9.941333 122.581333-68.906667 122.581333-140.672 0-78.72-64-142.72-142.72-142.72a142.848 142.848 0 0 0-142.72 142.72 20.138667 20.138667 0 0 0 40.277334 0c0-56.490667 45.994667-102.4 102.4-102.4 56.490667 0 102.485333 45.909333 102.485333 102.4 0 56.448-45.994667 102.4-102.442667 102.4-11.093333 0-20.138667 8.96-20.138666 20.181333 0 0.853333 0.384 1.621333 0.512 2.474667-0.128 0.853333-0.512 1.621333-0.512 2.56v100.693333a20.138667 20.138667 0 0 0 40.277333 0V572.16zM489.557333 701.781333a20.138667 20.138667 0 0 0-20.138666 20.181334v31.914666a20.138667 20.138667 0 0 0 40.277333 0v-31.914666a20.138667 20.138667 0 0 0-20.138667-20.181334"  ></path></symbol><symbol id="icon-RectangleCopy5" viewBox="0 0 1024 1024"><path d="M810.666667 557.312v-58.154667c0-54.272-48-98.432-106.965334-98.432H357.888V308.181333C357.888 232.362667 427.52 170.666667 513.024 170.666667c85.546667 0 155.178667 61.696 155.178667 137.514666v18.005334a21.333333 21.333333 0 1 0 42.666666 0v-18.005334c0-99.370667-88.746667-180.181333-197.845333-180.181333-109.056 0-197.802667 80.810667-197.802667 180.181333v93.013334C258.645333 403.669333 213.333333 446.464 213.333333 499.157333v255.701334C213.333333 809.173333 261.290667 853.333333 320.256 853.333333h383.445333C762.666667 853.333333 810.666667 809.173333 810.666667 754.858667v-69.546667a21.333333 21.333333 0 0 0-42.666667 0v69.546667c0 30.805333-28.842667 55.808-64.298667 55.808H320.256C284.842667 810.666667 256 785.664 256 754.858667v-255.701334c0-30.762667 28.842667-55.765333 64.256-55.765333h383.445333c35.456 0 64.298667 25.002667 64.298667 55.765333v58.154667a21.333333 21.333333 0 0 0 42.666667 0z"  ></path></symbol><symbol id="icon-RectangleCopy6" viewBox="0 0 1066 1024"><path d="M852.650667 256H210.901333a21.333333 21.333333 0 0 0 0 42.666667h66.858667v442.624A113.493333 113.493333 0 0 0 390.954667 854.613333h284.8a113.450667 113.450667 0 0 0 113.28-113.322666V620.416a21.333333 21.333333 0 1 0-42.666667 0v120.874667c0 38.954667-31.658667 70.656-70.613333 70.656H390.954667a70.741333 70.741333 0 0 1-70.613334-70.656V298.666667h426.069334v190.208a21.333333 21.333333 0 0 0 42.666666 0V298.666667h63.573334a21.333333 21.333333 0 0 0 0-42.666667"  ></path><path d="M442.88 213.333333h187.818667a21.333333 21.333333 0 1 0 0-42.666666H442.88a21.333333 21.333333 0 0 0 0 42.666666M426.922667 405.333333v298.666667a21.333333 21.333333 0 0 0 42.666666 0v-298.666667a21.333333 21.333333 0 0 0-42.666666 0M597.589333 405.333333v298.666667a21.333333 21.333333 0 0 0 42.666667 0v-298.666667a21.333333 21.333333 0 0 0-42.666667 0"  ></path></symbol><symbol id="icon-error" viewBox="0 0 1024 1024"><path d="M512 0.472615C230.636308 0.472615 0.472615 230.636308 0.472615 512c0 281.363692 230.163692 511.527385 511.527385 511.527385 281.363692 0 511.527385-230.163692 511.527385-511.527385 0-281.363692-230.163692-511.527385-511.527385-511.527385z m0 831.251693c-38.360615 0-63.960615-25.6-63.960615-63.960616 0-38.360615 25.6-63.960615 63.960615-63.960615 38.360615 0 63.960615 25.6 63.960615 63.960615 0 38.360615-25.6 63.960615-63.960615 63.960616z m63.960615-255.763693c0 38.360615-25.6 63.881846-63.960615 63.881847-38.360615 0-63.960615-25.521231-63.960615-63.881847V256.236308c0-38.360615 25.6-63.960615 63.960615-63.960616 38.360615 0 63.960615 25.6 63.960615 63.960616v319.724307z" fill="#FF6750" ></path></symbol><symbol id="icon-fa-right" viewBox="0 0 1024 1024"><path d="M639.54821002 447.784466"  ></path><path d="M575.58748002 639.666658"  ></path><path d="M711.76088202 387.753231L379.21809002 84.47495l-1.050935 0.855484c-12.841469-13.075807-31.488155-21.309328-52.250014-21.309328-38.733163 0-70.13229 28.636201-70.13229 63.960731 0 16.33606 6.725168 31.233352 17.774829 42.537815l-0.230244 0.187265 331.152119 302.009382c23.537066 21.465894 23.537066 56.591903 0 78.057797L275.08440502 851.184049l0.160659 0.13303c-12.046361 11.484565-19.460214 27.04496-19.460214 44.192501 0 35.32453 31.399127 63.960731 70.13229 63.960731 21.286816 0 40.34487-8.661264 53.206806-22.317285l0.039909 0.032746 332.597027-303.3274C785.97104802 566.17997 785.97104802 455.432657 711.76088202 387.753231z"  ></path></symbol><symbol id="icon-erroe" viewBox="0 0 1024 1024"><path d="M0 512a512 512 0 1 1 1024.064 0.064A512 512 0 0 1 0 512z m576 32V256a64 64 0 1 0-128 0v288a64 64 0 1 0 128 0zM576 768a64 64 0 1 0-128 0 64 64 0 0 0 128 0z" fill="#1E1E1E" ></path></symbol></svg>',
-      c = (a = document.getElementsByTagName("script"))[a.length - 1].getAttribute("data-injectcss");
-
-  if (c && !h.__iconfont__svg__cssinject__) {
-    h.__iconfont__svg__cssinject__ = !0;
-
-    try {
-      document.write("<style>.svgfont {display: inline-block;width: 1em;height: 1em;fill: currentColor;vertical-align: -0.1em;font-size:16px;}</style>");
-    } catch (a) {
-      console && console.log(a);
-    }
-  }
-
-  !function (a) {
-    if (document.addEventListener) {
-      if (~["complete", "loaded", "interactive"].indexOf(document.readyState)) setTimeout(a, 0);else {
-        var c = function c() {
-          document.removeEventListener("DOMContentLoaded", c, !1), a();
-        };
-
-        document.addEventListener("DOMContentLoaded", c, !1);
-      }
-    } else document.attachEvent && (t = a, e = h.document, o = !1, (_i = function i() {
-      try {
-        e.documentElement.doScroll("left");
-      } catch (a) {
-        return void setTimeout(_i, 50);
-      }
-
-      l();
-    })(), e.onreadystatechange = function () {
-      "complete" == e.readyState && (e.onreadystatechange = null, l());
-    });
-
-    function l() {
-      o || (o = !0, t());
-    }
-
-    var t, e, o, _i;
-  }(function () {
-    var a, c;
-    (a = document.createElement("div")).innerHTML = l, l = null, (c = a.getElementsByTagName("svg")[0]) && (c.setAttribute("aria-hidden", "true"), c.style.position = "absolute", c.style.width = 0, c.style.height = 0, c.style.overflow = "hidden", function (a, c) {
-      c.firstChild ? function (a, c) {
-        c.parentNode.insertBefore(a, c);
-      }(a, c.firstChild) : c.appendChild(a);
-    }(c, document.body));
-  });
-}(window);
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"./vue.common.dev.js":"../node_modules/vue/dist/vue.common.dev.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -12147,7 +12096,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -12182,7 +12131,7 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
+},{"./bundle-url":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
 var Vue // late bind
 var version
 var map = Object.create(null)
@@ -12455,938 +12404,7 @@ function patchScopedSlots (instance) {
   }
 }
 
-},{}],"src/icon.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-require("./svg");
-
-//
-//
-//
-//
-//
-var _default = {
-  name: 'OneIcon',
-  props: ['icon']
-};
-exports.default = _default;
-        var $c8562a = exports.default || module.exports;
-      
-      if (typeof $c8562a === 'function') {
-        $c8562a = $c8562a.options;
-      }
-    
-        /* template */
-        Object.assign($c8562a, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("svg", { staticClass: "icon", class: "" + _vm.icon }, [
-    _c("use", { attrs: { "xlink:href": "#icon-" + _vm.icon } })
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-c8562a",
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$c8562a', $c8562a);
-          } else {
-            api.reload('$c8562a', $c8562a);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"./svg":"src/svg.js","_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/button.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _icon = _interopRequireDefault(require("./icon"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = {
-  name: 'OMButton',
-  components: {
-    'o-icon': _icon.default
-  },
-  props: {
-    icon: {},
-    loading: {
-      type: Boolean
-    },
-    check: {
-      type: Boolean
-    },
-    size: {
-      type: String,
-      validator: function validator(value) {
-        return ['small', 'normal', 'large'].indexOf(value) > -1;
-      }
-    },
-    importance: {
-      type: String,
-      validator: function validator(value) {
-        return ['default', 'primary', 'light'].indexOf(value) > -1;
-      }
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    name: {
-      type: String
-    }
-  },
-  methods: {
-    clickButton: function clickButton() {
-      this.$emit('click');
-    },
-    ifDisabled: function ifDisabled() {
-      if (this.disabled === true) {
-        return this.disabled;
-      }
-    }
-  }
-};
-exports.default = _default;
-        var $9e778f = exports.default || module.exports;
-      
-      if (typeof $9e778f === 'function') {
-        $9e778f = $9e778f.options;
-      }
-    
-        /* template */
-        Object.assign($9e778f, (function () {
-          var render = function() {
-  var _obj
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "button",
-    {
-      staticClass: "o-button",
-      class: ((_obj = {}),
-      (_obj["" + _vm.size] = true),
-      (_obj["" + _vm.importance] = true),
-      (_obj.disabled = _vm.disabled),
-      _obj),
-      attrs: { disabled: _vm.ifDisabled() },
-      on: {
-        click: function($event) {
-          return _vm.$emit("click")
-        }
-      }
-    },
-    [
-      _vm.icon && !_vm.loading && !_vm.check
-        ? _c("o-icon", { attrs: { icon: _vm.icon } })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.loading ? _c("o-icon", { attrs: { icon: "loading" } }) : _vm._e(),
-      _vm._v(" "),
-      _vm.check ? _c("o-icon", { attrs: { icon: "check" } }) : _vm._e(),
-      _vm._v(" "),
-      _vm._t("default")
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-9e778f",
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$9e778f', $9e778f);
-          } else {
-            api.reload('$9e778f', $9e778f);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"./icon":"src/icon.vue","_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/collapse.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _vue = _interopRequireDefault(require("vue"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-var _default = {
-  name: 'OMCollapse',
-  props: {
-    single: {
-      type: Boolean,
-      default: false
-    },
-    selected: {
-      type: Array
-    }
-  },
-  data: function data() {
-    return {
-      eventBus: new _vue.default()
-    };
-  },
-  provide: function provide() {
-    return {
-      eventBus: this.eventBus
-    };
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    //通知子组件Item选中信息
-    this.eventBus.$emit('update:selected', this.selected); //接收来自子组件Item的增添事件
-
-    this.eventBus.$on('update:addSelected', function (name) {
-      //判断是否单选Item
-      if (_this.single) {
-        _this.selected = [name];
-      } else {
-        _this.selected.push(name);
-      }
-
-      _this.eventBus.$emit('update:selected', _this.selected);
-
-      _this.$emit('update:selected', _this.selected);
-    }); //接收来自子组件Item的删除事件
-
-    this.eventBus.$on('update:removeSelected', function (name) {
-      var index = _this.selected.indexOf(name);
-
-      _this.selected.splice(index, 1);
-
-      _this.eventBus.$emit('update:selected', _this.selected);
-
-      _this.$emit('update:selected', _this.selected);
-    });
-  }
-};
-exports.default = _default;
-        var $42cef2 = exports.default || module.exports;
-      
-      if (typeof $42cef2 === 'function') {
-        $42cef2 = $42cef2.options;
-      }
-    
-        /* template */
-        Object.assign($42cef2, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "collapse" } }, [_vm._t("default")], 2)
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-42cef2",
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$42cef2', $42cef2);
-          } else {
-            api.reload('$42cef2', $42cef2);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"vue":"node_modules/vue/dist/vue.common.js","_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"src/collapse-item.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = {
-  name: 'OMCollapseItem',
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-    name: {
-      type: String,
-      required: true
-    }
-  },
-  data: function data() {
-    return {
-      open: false
-    };
-  },
-  inject: ['eventBus'],
-  mounted: function mounted() {
-    var _this = this;
-
-    //接收父组件Collapse处理后的selected信息并操作是否显示
-    this.eventBus && this.eventBus.$on('update:selected', function (selected) {
-      if (selected.indexOf(_this.name) >= 0) {
-        _this.open = true;
-      } else {
-        _this.open = false;
-      }
-    });
-  },
-  methods: {
-    //点击后 通知父组件Collapse add事件/remove事件 
-    toggle: function toggle() {
-      if (this.open) {
-        this.eventBus && this.eventBus.$emit('update:removeSelected', this.name);
-      } else {
-        this.eventBus && this.eventBus.$emit('update:addSelected', this.name);
-      }
-    }
-  }
-};
-exports.default = _default;
-        var $061b2e = exports.default || module.exports;
-      
-      if (typeof $061b2e === 'function') {
-        $061b2e = $061b2e.options;
-      }
-    
-        /* template */
-        Object.assign($061b2e, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "collapseItem", on: { click: _vm.toggle } }, [
-    _c("div", { staticClass: "title" }, [
-      _vm._v("\n        " + _vm._s(_vm.title) + "  \n    ")
-    ]),
-    _vm._v(" "),
-    _vm.open
-      ? _c("div", { staticClass: "content" }, [_vm._t("default")], 2)
-      : _vm._e()
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-061b2e",
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$061b2e', $061b2e);
-          } else {
-            api.reload('$061b2e', $061b2e);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/toast.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = {
-  name: 'OMtoast',
-  props: {
-    autoClose: {
-      type: [Boolean, Number],
-      default: 3,
-      validator: function validator(value) {
-        return value === false || typeof value === 'number';
-      }
-    },
-    closeButton: {
-      type: Object,
-      default: function _default() {
-        //props default值是对象（引用类型），则需要写成函数
-        return {
-          text: '关闭',
-          callback: undefined
-        };
-      }
-    },
-    enableHTML: {
-      type: Boolean,
-      default: false
-    },
-    position: {
-      type: String,
-      default: 'top',
-      validator: function validator(value) {
-        return ['top', 'middle', 'bottom'].indexOf(value) > -1;
-      }
-    }
-  },
-  computed: {
-    toastClass: function toastClass() {
-      return _defineProperty({}, "position-".concat(this.position), true);
-    }
-  },
-  mounted: function mounted() {
-    this.setReaminTime();
-  },
-  methods: {
-    setReaminTime: function setReaminTime() {
-      var _this = this;
-
-      if (this.autoClose) {
-        setTimeout(function () {
-          _this.close();
-        }, this.autoClose * 1000);
-      }
-    },
-    close: function close() {
-      this.$el.remove();
-      this.$emit('close');
-      this.$destroy();
-    },
-    onClickClose: function onClickClose() {
-      if (this.closeButton && typeof this.closeButton.callback === 'function') {
-        this.closeButton.callback(this);
-      }
-
-      this.close();
-    }
-  }
-};
-exports.default = _default;
-        var $d2af09 = exports.default || module.exports;
-      
-      if (typeof $d2af09 === 'function') {
-        $d2af09 = $d2af09.options;
-      }
-    
-        /* template */
-        Object.assign($d2af09, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "animationWrapper" }, [
-    _c("div", { ref: "toast", staticClass: "toast", class: _vm.toastClass }, [
-      !_vm.enableHTML
-        ? _c("div", { staticClass: "message" }, [_vm._t("default")], 2)
-        : _c("div", {
-            staticClass: "message",
-            domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) }
-          }),
-      _vm._v(" "),
-      _c("div", { ref: "line", attrs: { id: "line" } }),
-      _vm._v(" "),
-      _vm.closeButton
-        ? _c(
-            "span",
-            { staticClass: "close", on: { click: _vm.onClickClose } },
-            [
-              _vm._v(
-                "\n            " + _vm._s(_vm.closeButton.text) + "\n        "
-              )
-            ]
-          )
-        : _vm._e()
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-d2af09",
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$d2af09', $d2af09);
-          } else {
-            api.reload('$d2af09', $d2af09);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/toastPlugin.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _toast = _interopRequireDefault(require("./toast"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var currentToast;
-var _default = {
-  install: function install(Vue, options) {
-    Vue.prototype.$toast = function (message, toastOptions) {
-      if (currentToast) {
-        currentToast.close();
-      }
-
-      currentToast = creatToast({
-        Vue: Vue,
-        message: message,
-        propsData: toastOptions,
-        onClose: function onClose() {
-          currentToast = null;
-        }
-      });
-    };
-  }
-};
-exports.default = _default;
-
-function creatToast(_ref) {
-  var Vue = _ref.Vue,
-      message = _ref.message,
-      propsData = _ref.propsData,
-      onClose = _ref.onClose;
-  var Constructor = Vue.extend(_toast.default);
-  var toast = new Constructor({
-    propsData: propsData
-  });
-  toast.$slots.default = [message];
-  toast.$mount();
-  toast.$on('close', onClose);
-  document.body.appendChild(toast.$el);
-  return toast;
-}
-},{"./toast":"src/toast.vue"}],"src/switch.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-//
-//
-//
-//
-//
-//
-//
-var _default = {
-  name: 'OMSwitch',
-  props: {
-    value: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data: function data() {
-    return {
-      checkedValue: this.value,
-      isChecked: undefined,
-      unChecked: undefined
-    };
-  },
-  mounted: function mounted() {
-    this.isChecked = false;
-  },
-  methods: {
-    watchCheck: function watchCheck() {
-      if (!this.disabled) {
-        this.unChecked = this.isChecked;
-        this.isChecked = !this.isChecked;
-      }
-    }
-  }
-};
-exports.default = _default;
-        var $148d27 = exports.default || module.exports;
-      
-      if (typeof $148d27 === 'function') {
-        $148d27 = $148d27.options;
-      }
-    
-        /* template */
-        Object.assign($148d27, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "OMSwitchWrapper", on: { click: _vm.watchCheck } },
-    [
-      _c("div", {
-        staticClass: "BGWrapper",
-        class: { wrapperActive: _vm.isChecked, wrapperUnActive: _vm.unChecked }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.checkedValue,
-            expression: "checkedValue"
-          }
-        ],
-        staticClass: "OMSwitchInput",
-        attrs: { type: "checkbox", disabled: _vm.disabled },
-        domProps: {
-          checked: Array.isArray(_vm.checkedValue)
-            ? _vm._i(_vm.checkedValue, null) > -1
-            : _vm.checkedValue
-        },
-        on: {
-          change: function($event) {
-            var $$a = _vm.checkedValue,
-              $$el = $event.target,
-              $$c = $$el.checked ? true : false
-            if (Array.isArray($$a)) {
-              var $$v = null,
-                $$i = _vm._i($$a, $$v)
-              if ($$el.checked) {
-                $$i < 0 && (_vm.checkedValue = $$a.concat([$$v]))
-              } else {
-                $$i > -1 &&
-                  (_vm.checkedValue = $$a
-                    .slice(0, $$i)
-                    .concat($$a.slice($$i + 1)))
-              }
-            } else {
-              _vm.checkedValue = $$c
-            }
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("div", {
-        staticClass: "OMSwitchButton",
-        class: { checked: _vm.isChecked, unChecked: _vm.unChecked }
-      })
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-148d27",
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$148d27', $148d27);
-          } else {
-            api.reload('$148d27', $148d27);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/input.vue":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _icon = _interopRequireDefault(require("./icon"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = {
-  name: 'OMInput',
-  components: {
-    'o-icon': _icon.default
-  },
-  props: {
-    value: {
-      type: String
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    readonly: {
-      type: Boolean,
-      default: false
-    },
-    error: {
-      type: Boolean,
-      default: false
-    },
-    errormsg: {
-      type: String
-    }
-  }
-};
-exports.default = _default;
-        var $9fcc7e = exports.default || module.exports;
-      
-      if (typeof $9fcc7e === 'function') {
-        $9fcc7e = $9fcc7e.options;
-      }
-    
-        /* template */
-        Object.assign($9fcc7e, (function () {
-          var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "wrapper", class: { error: _vm.error } },
-    [
-      _c("input", {
-        attrs: { type: "text", disabled: _vm.disabled, readonly: _vm.readonly },
-        domProps: { value: _vm.value },
-        on: {
-          change: function($event) {
-            return _vm.$emit("change", $event.target.value)
-          },
-          input: function($event) {
-            return _vm.$emit("input", $event.target.value)
-          },
-          focus: function($event) {
-            return _vm.$emit("focus", $event.target.value)
-          },
-          blur: function($event) {
-            return _vm.$emit("blur", $event.target.value)
-          }
-        }
-      }),
-      _vm._v(" "),
-      _vm.error
-        ? [
-            _c("o-icon", {
-              staticClass: "icon-error",
-              attrs: { icon: "error" }
-            }),
-            _vm._v(" "),
-            _c("span", { staticClass: "errorMessage" }, [
-              _vm._v(_vm._s(_vm.errormsg))
-            ])
-          ]
-        : _vm._e()
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-9fcc7e",
-            functional: undefined
-          };
-        })());
-      
-    /* hot reload */
-    (function () {
-      if (module.hot) {
-        var api = require('vue-hot-reload-api');
-        api.install(require('vue'));
-        if (api.compatible) {
-          module.hot.accept();
-          if (!module.hot.data) {
-            api.createRecord('$9fcc7e', $9fcc7e);
-          } else {
-            api.reload('$9fcc7e', $9fcc7e);
-          }
-        }
-
-        
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-      }
-    })();
-},{"./icon":"src/icon.vue","_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tab.vue":[function(require,module,exports) {
+},{}],"../src/tab.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13494,7 +12512,7 @@ render._withStripped = true
       
       }
     })();
-},{"vue":"node_modules/vue/dist/vue.common.js","_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"src/tab-head.vue":[function(require,module,exports) {
+},{"vue":"../node_modules/vue/dist/vue.common.js","_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js"}],"../src/tab-head.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13585,7 +12603,7 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tab-item.vue":[function(require,module,exports) {
+},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.common.js"}],"../src/tab-item.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13700,7 +12718,7 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tab-body.vue":[function(require,module,exports) {
+},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.common.js"}],"../src/tab-body.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13764,7 +12782,7 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tab-pane.vue":[function(require,module,exports) {
+},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.common.js"}],"../src/tab-pane.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13864,73 +12882,58 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
+},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.common.js"}],"tabs.test.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
 
-var _button = _interopRequireDefault(require("./button"));
+var _tab = _interopRequireDefault(require("../src/tab"));
 
-var _collapse = _interopRequireDefault(require("./collapse.vue"));
+var _tabHead = _interopRequireDefault(require("../src/tab-head"));
 
-var _collapseItem = _interopRequireDefault(require("./collapse-item.vue"));
+var _tabItem = _interopRequireDefault(require("../src/tab-item"));
 
-var _toast = _interopRequireDefault(require("./toast"));
+var _tabBody = _interopRequireDefault(require("../src/tab-body"));
 
-var _toastPlugin = _interopRequireDefault(require("./toastPlugin"));
-
-var _switch = _interopRequireDefault(require("./switch"));
-
-var _input = _interopRequireDefault(require("./input.vue"));
-
-var _tab = _interopRequireDefault(require("./tab.vue"));
-
-var _tabHead = _interopRequireDefault(require("./tab-head.vue"));
-
-var _tabItem = _interopRequireDefault(require("./tab-item.vue"));
-
-var _tabBody = _interopRequireDefault(require("./tab-body.vue"));
-
-var _tabPane = _interopRequireDefault(require("./tab-pane.vue"));
+var _tabPane = _interopRequireDefault(require("../src/tab-pane"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_vue.default.component('o-button', _button.default);
+var expect = chai.expect;
+_vue.default.config.productionTip = false;
+_vue.default.config.devtools = false; //BDD 行为测试驱动 mocha
+//Tab
 
-_vue.default.component('o-collapse', _collapse.default);
+describe('Tab', function () {
+  it('存在.', function () {
+    expect(_tab.default).to.be.ok;
+  });
+}); //TabHead
 
-_vue.default.component('o-collapse-item', _collapseItem.default);
+describe('TabHead', function () {
+  it('存在.', function () {
+    expect(_tabHead.default).to.be.ok;
+  });
+}); //TabItem
 
-_vue.default.component('o-toast', _toast.default);
+describe('TabItem', function () {
+  it('存在.', function () {
+    expect(_tabItem.default).to.be.ok;
+  });
+}); //TabBody
 
-_vue.default.component('o-switch', _switch.default);
+describe('TabBody', function () {
+  it('存在.', function () {
+    expect(_tabBody.default).to.be.ok;
+  });
+}); //TabPane
 
-_vue.default.component('o-input', _input.default);
-
-_vue.default.component('o-tab', _tab.default);
-
-_vue.default.component('o-tab-head', _tabHead.default);
-
-_vue.default.component('o-tab-item', _tabItem.default);
-
-_vue.default.component('o-tab-body', _tabBody.default);
-
-_vue.default.component('o-tab-pane', _tabPane.default);
-
-_vue.default.use(_toastPlugin.default);
-
-new _vue.default({
-  el: '#app',
-  data: {
-    selectedTab: '2'
-  },
-  methods: {
-    inputChange: function inputChange(e) {
-      console.log(e);
-    }
-  }
+describe('TabPane', function () {
+  it('存在.', function () {
+    expect(_tabPane.default).to.be.ok;
+  });
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./collapse.vue":"src/collapse.vue","./collapse-item.vue":"src/collapse-item.vue","./toast":"src/toast.vue","./toastPlugin":"src/toastPlugin.js","./switch":"src/switch.vue","./input.vue":"src/input.vue","./tab.vue":"src/tab.vue","./tab-head.vue":"src/tab-head.vue","./tab-item.vue":"src/tab-item.vue","./tab-body.vue":"src/tab-body.vue","./tab-pane.vue":"src/tab-pane.vue"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"../node_modules/vue/dist/vue.common.js","../src/tab":"../src/tab.vue","../src/tab-head":"../src/tab-head.vue","../src/tab-item":"../src/tab-item.vue","../src/tab-body":"../src/tab-body.vue","../src/tab-pane":"../src/tab-pane.vue"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -13958,7 +12961,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56708" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50776" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -14133,5 +13136,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/app.js"], null)
-//# sourceMappingURL=/app.a6a4d504.js.map
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","tabs.test.js"], null)
+//# sourceMappingURL=/tabs.test.ced30e57.js.map

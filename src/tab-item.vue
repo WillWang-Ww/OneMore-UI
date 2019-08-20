@@ -49,8 +49,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-    $blue: blue;
-    $disabled-text-color: grey;
+    $active-font-color: #fc9153;
+    $disabled-text-color: #bbb;
     .tabs-item {
     flex-shrink: 0;
     padding: 0 1em;
@@ -59,9 +59,9 @@ export default {
     display: flex;
     align-items: center;
     cursor: pointer;
+    color: #444;
     &.active {
-        color: $blue;
-        font-weight: bold;
+        color: $active-font-color;
     }
     &.disabled {
         color: $disabled-text-color;

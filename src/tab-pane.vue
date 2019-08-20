@@ -37,23 +37,9 @@ export default {
 }
 </script>
 <style lang="scss">
-    $blue: blue;
-    $disabled-text-color: grey;
     .tabs-pane {
-    flex-shrink: 0;
-    padding: 1em 1em;
-    cursor: pointer;
-    height: 100%;
-    display: flex;
-    align-items: center;
-
+    padding: 1em;
     &.active {
-        color: $blue;
-        font-weight: bold;
     }
-    &.disabled {
-        color: $disabled-text-color;
-        cursor: not-allowed;
-    }
-    }
+  }
 </style>

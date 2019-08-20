@@ -9,9 +9,11 @@
     *{margin: 0;padding: 0;}
     *{box-sizing: border-box;}
     </style>
-    <style></style>
+    <style>
+        #app{
+            margin-top: 50px;
+        }
     </style>
-    
 </head>
 <body>
     <div id="app">
@@ -26,8 +28,11 @@
                 <o-tab-item name="2"> 
                     标题2
                 </o-tab-item>
-                <o-tab-item name="3" disabled> 
+                <o-tab-item name="3"> 
                     标题3
+                </o-tab-item>
+                <o-tab-item name="4" disabled> 
+                        标题4
                 </o-tab-item>
             </o-tab-head>
             <o-tab-body>
@@ -39,6 +44,9 @@
                 </o-tab-pane>
                 <o-tab-pane name="3">
                     内容3
+                </o-tab-pane>
+                <o-tab-pane name="4">
+                    内容4
                 </o-tab-pane>
             </o-tab-body>
         </o-tab>
