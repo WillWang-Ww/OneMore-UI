@@ -9,8 +9,15 @@
 </template>
 <script>
 export default {
-  name: "OMTab",
-  inject: ["eventBus"]
+    name: "OMTabHead",
+    inject: ["eventBus"],
+    mounted () {
+      this.eventBus.$on('update:selected', (item, vm) => {
+        let {left,width} = vm.$el.getBoundingClientRect()
+        this.$refs.line.style.width = `${width}px`
+        this.$refs.line.style.left = `${left}px`
+      })
+    },
 };
 </script>
 <style lang="scss">

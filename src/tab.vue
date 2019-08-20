@@ -31,8 +31,17 @@ export default {
         }
     },
     mounted(){
-        this.eventBus.$emit('update:selected',this.selected)
-    }
+        this.$children.forEach((vm) => {
+          if (vm.$options.name === 'OMTabHead') {
+            vm.$children.forEach((childVm) => {
+              if (childVm.$options.name === 'OMTabItem'
+                && childVm.name === this.selected) {
+                this.eventBus.$emit('update:selected', this.selected, childVm)
+              }
+            })
+          }
+        })
+      }
 }
 </script>
 <style lang="scss">
