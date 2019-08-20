@@ -230,3 +230,53 @@
     color: #F1453D;
 }
 
+.tabs-head {
+  display: flex;
+  height: 40px;
+  justify-content: flex-start;
+  position: relative;
+  border-bottom: 1px solid #ddd; }
+  .tabs-head > .line {
+    position: absolute;
+    bottom: 0;
+    border-bottom: 1px solid blue;
+    transition: all 350ms; }
+  .tabs-head > .actions-wrapper {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1em; }
+
+.tabs-item[data-v-af8cd0] {
+  flex-shrink: 0;
+  padding: 0 1em;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.tabs-item.active[data-v-af8cd0] {
+    color: blue;
+    font-weight: bold;
+}
+.tabs-item.disabled[data-v-af8cd0] {
+    color: grey;
+    cursor: not-allowed;
+}
+
+.tabs-pane {
+  flex-shrink: 0;
+  padding: 1em 1em;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center; }
+  .tabs-pane.active {
+    color: blue;
+    font-weight: bold; }
+  .tabs-pane.disabled {
+    color: grey;
+    cursor: not-allowed; }
+

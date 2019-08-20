@@ -15,11 +15,33 @@
 </head>
 <body>
     <div id="app">
-        <o-input value="default"></o-input>
-        <o-input value="default" disabled></o-input>
-        <o-input value="default" readonly></o-input>
-        <o-input value="default" errorMsg="错误" error></o-input>
-        <o-input value="default" @change="inputChange"></o-input>
+        <o-tab :selected.sync="selectedTab">
+            <o-tab-head>
+                <template slot="actions">
+                    <button>setting</button>
+                </template>
+                <o-tab-item name="1"> 
+                    标题1
+                </o-tab-item>
+                <o-tab-item name="2"> 
+                    标题2
+                </o-tab-item>
+                <o-tab-item name="3" disabled> 
+                    标题3
+                </o-tab-item>
+            </o-tab-head>
+            <o-tab-body>
+                <o-tab-pane name="1">
+                    内容1
+                </o-tab-pane>
+                <o-tab-pane name="2">
+                    内容2
+                </o-tab-pane>
+                <o-tab-pane name="3">
+                    内容3
+                </o-tab-pane>
+            </o-tab-body>
+        </o-tab>
     </div>
 </body>
 <script src="./src/app.js"></script>
