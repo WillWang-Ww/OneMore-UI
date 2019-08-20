@@ -1,4 +1,5 @@
 module.exports = {
+    base: '/OneMore-UI/',
     title: 'OneMore',
     description: '一个前端新人做着玩的移动端UI库',
     themeConfig: {

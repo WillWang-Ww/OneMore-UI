@@ -4,12 +4,13 @@
     </svg>
 </template>
 <script>
+import './svg'
 export default {
     name:'OneIcon',
     props:['icon']
 }
 </script>
-<style>
+<style scoped>
 .icon {
     width: 1em; height: 1em;
     fill: currentColor;

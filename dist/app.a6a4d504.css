@@ -1,16 +1,16 @@
-.icon {
+.icon[data-v-c8562a] {
     width: 1em; height: 1em;
     fill: currentColor;
     overflow: hidden;
     margin: 0px;
     margin-right: 0.2em;
 }
-@keyframes loading {
-    0%{transform: rotate(0deg);}
-    100%{transform: rotate(360deg);}
+@keyframes loading-data-v-c8562a {
+0%{transform: rotate(0deg);}
+100%{transform: rotate(360deg);}
 }
-.loading{
-    animation: loading 1s linear infinite;
+.loading[data-v-c8562a]{
+    animation: loading-data-v-c8562a 1s linear infinite;
 }
 .o-button[data-v-9e778f]{
     color: white;
@@ -61,7 +61,7 @@
 .disabled[data-v-9e778f]{
     background-color: #ccc;
 }
-#collapse{
+#collapse[data-v-42cef2]{
     border: 1px solid #ddd;
     border-radius: 6px;
     width: 100%;
@@ -193,34 +193,40 @@
 .unChecked[data-v-148d27]{
     left: 0;
 }
-.wrapper{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid #ccc;
+.wrapper[data-v-9fcc7e] {
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
 }
-.OMMessageTitle{
-    text-align: center;
-    padding: 8px 0px;
-    font-size: 16px;
+.wrapper[data-v-9fcc7e] > :not(:last-child) {
+    margin-right: .5em;
 }
-.OMMessageContent{
-    text-align: center;
-    padding: 0px 12px;
-    font-size: 14px;
+.wrapper > input[data-v-9fcc7e] {
+    height: 32px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding: 0 8px;
+    font-size: inherit;
 }
-.OMMessageOptions{
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
+.wrapper > input[data-v-9fcc7e]:hover {
+      border-color: #666;
 }
-.close{
-    padding: 8px 12px;
-    width: 100%;
+.wrapper > input[data-v-9fcc7e]:focus {
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+      outline: none;
 }
-.confirm{
-    padding: 8px 12px;
-    width: 100%;        
+.wrapper > input[disabled][data-v-9fcc7e], .wrapper > input[readonly][data-v-9fcc7e] {
+      border-color: #bbb;
+      color: #bbb;
+      cursor: not-allowed;
 }
+.wrapper.error > input[data-v-9fcc7e] {
+    border-color: #F1453D;
+}
+.wrapper .icon-error[data-v-9fcc7e] {
+    fill: #F1453D;
+}
+.wrapper .errorMessage[data-v-9fcc7e] {
+    color: #F1453D;
+}
+
