@@ -17,39 +17,12 @@
 </head>
 <body>
     <div id="app">
-        <o-tab :selected.sync="selectedTab">
-            <o-tab-head>
-                <template slot="actions">
-                    <button>setting</button>
-                </template>
-                <o-tab-item name="1"> 
-                    标题1
-                </o-tab-item>
-                <o-tab-item name="2"> 
-                    标题2
-                </o-tab-item>
-                <o-tab-item name="3"> 
-                    标题3
-                </o-tab-item>
-                <o-tab-item name="4" disabled> 
-                        标题4
-                </o-tab-item>
-            </o-tab-head>
-            <o-tab-body>
-                <o-tab-pane name="1">
-                    内容1
-                </o-tab-pane>
-                <o-tab-pane name="2">
-                    内容2
-                </o-tab-pane>
-                <o-tab-pane name="3">
-                    内容3
-                </o-tab-pane>
-                <o-tab-pane name="4">
-                    内容4
-                </o-tab-pane>
-            </o-tab-body>
-        </o-tab>
+        <o-popover>
+            <template slot="content">
+                <div>Show me!</div>
+            </template>
+                <button>click me</button>        
+        </o-popover>
     </div>
 </body>
 <script src="./src/app.js"></script>

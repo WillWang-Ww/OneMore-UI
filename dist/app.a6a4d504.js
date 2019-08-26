@@ -13864,6 +13864,89 @@ render._withStripped = true
       
       }
     })();
+},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/popover.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "OMPopover",
+  data: function data() {
+    return {
+      visible: true
+    };
+  },
+  methods: {
+    xxx: function xxx() {
+      this.visible = !this.visible;
+    }
+  }
+};
+exports.default = _default;
+        var $361e90 = exports.default || module.exports;
+      
+      if (typeof $361e90 === 'function') {
+        $361e90 = $361e90.options;
+      }
+    
+        /* template */
+        Object.assign($361e90, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "popover", on: { click: _vm.xxx } },
+    [
+      _vm.visible ? _vm._t("content") : _vm._e(),
+      _vm._v(" "),
+      _vm._t("default")
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-361e90",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$361e90', $361e90);
+          } else {
+            api.reload('$361e90', $361e90);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
 },{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -13893,6 +13976,8 @@ var _tabBody = _interopRequireDefault(require("./tab-body.vue"));
 
 var _tabPane = _interopRequireDefault(require("./tab-pane.vue"));
 
+var _popover = _interopRequireDefault(require("./popover"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue.default.component('o-button', _button.default);
@@ -13917,6 +14002,8 @@ _vue.default.component('o-tab-body', _tabBody.default);
 
 _vue.default.component('o-tab-pane', _tabPane.default);
 
+_vue.default.component('o-popover', _popover.default);
+
 _vue.default.use(_toastPlugin.default);
 
 new _vue.default({
@@ -13930,7 +14017,7 @@ new _vue.default({
     }
   }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./collapse.vue":"src/collapse.vue","./collapse-item.vue":"src/collapse-item.vue","./toast":"src/toast.vue","./toastPlugin":"src/toastPlugin.js","./switch":"src/switch.vue","./input.vue":"src/input.vue","./tab.vue":"src/tab.vue","./tab-head.vue":"src/tab-head.vue","./tab-item.vue":"src/tab-item.vue","./tab-body.vue":"src/tab-body.vue","./tab-pane.vue":"src/tab-pane.vue"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./collapse.vue":"src/collapse.vue","./collapse-item.vue":"src/collapse-item.vue","./toast":"src/toast.vue","./toastPlugin":"src/toastPlugin.js","./switch":"src/switch.vue","./input.vue":"src/input.vue","./tab.vue":"src/tab.vue","./tab-head.vue":"src/tab-head.vue","./tab-item.vue":"src/tab-item.vue","./tab-body.vue":"src/tab-body.vue","./tab-pane.vue":"src/tab-pane.vue","./popover":"src/popover.vue"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -13958,7 +14045,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56708" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51759" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -11,6 +11,7 @@ import TabHead from './tab-head.vue'
 import TabItem from './tab-item.vue'
 import TabBody from './tab-body.vue'
 import TabPane from './tab-pane.vue'
+import Popover from './popover'
 
 
 Vue.component('o-button',Button)
@@ -24,6 +25,7 @@ Vue.component('o-tab-head',TabHead)
 Vue.component('o-tab-item',TabItem)
 Vue.component('o-tab-body',TabBody)
 Vue.component('o-tab-pane',TabPane)
+Vue.component('o-popover',Popover)
 
 Vue.use(ToastPlugin)
 
