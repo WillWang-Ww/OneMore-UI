@@ -13877,16 +13877,34 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
 var _default = {
   name: "OMPopover",
   data: function data() {
     return {
-      visible: true
+      visible: false
     };
   },
   methods: {
-    xxx: function xxx() {
+    trigger: function trigger() {
+      var _this = this;
+
       this.visible = !this.visible;
+
+      if (this.visible === true) {
+        //异步解决点击后visible变成true后立刻变回false的问题
+        setTimeout(function () {
+          var eventHandler = function eventHandler() {
+            _this.visible = false; //每次更改后需要移除监听器
+
+            document.removeEventListener('click', eventHandler);
+          };
+
+          document.addEventListener('click', eventHandler);
+        });
+      }
     }
   }
 };
@@ -13905,9 +13923,31 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "popover", on: { click: _vm.xxx } },
+    {
+      staticClass: "popover",
+      on: {
+        click: function($event) {
+          $event.stopPropagation()
+          return _vm.trigger($event)
+        }
+      }
+    },
     [
-      _vm.visible ? _vm._t("content") : _vm._e(),
+      _vm.visible
+        ? _c(
+            "div",
+            {
+              staticClass: "contentWrapper",
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                }
+              }
+            },
+            [_vm._t("content")],
+            2
+          )
+        : _vm._e(),
       _vm._v(" "),
       _vm._t("default")
     ],
@@ -14045,7 +14085,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51759" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53793" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

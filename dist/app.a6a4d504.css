@@ -272,5 +272,13 @@
 .popover[data-v-361e90] {
   display: inline-block;
   vertical-align: top;
+  position: relative;
+}
+.popover .contentWrapper[data-v-361e90] {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    border: 1px solid #999;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
