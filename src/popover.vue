@@ -1,9 +1,8 @@
 <template>
     <div class="popover" @click.stop="trigger">
-        <div v-if="visible" class="contentWrapper" @click.stop>
+        <div ref="contentWrapper" v-if="visible" class="contentWrapper" @click.stop>
             <slot name="content" ></slot>        
         </div>
-
         <slot></slot>
     </div>
 </template>
@@ -20,12 +19,13 @@ export default {
             this.visible = !this.visible
             if(this.visible === true){
                 //异步解决点击后visible变成true后立刻变回false的问题
-                setTimeout(() => {
-                   let eventHandler = () => {
-                       this.visible = false
-                       //每次更改后需要移除监听器
-                    document.removeEventListener('click',eventHandler)
-                   }
+                this.$nextTick(() => {
+                    document.body.appendChild(this.$refs.contentWrapper)
+                    let eventHandler = () => {
+                        this.visible = false
+                        //每次更改后需要移除监听器
+                        document.removeEventListener('click',eventHandler)
+                    }
                     document.addEventListener('click',eventHandler)
                 })
             }

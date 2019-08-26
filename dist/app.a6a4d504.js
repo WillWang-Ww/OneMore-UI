@@ -13879,7 +13879,6 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
   name: "OMPopover",
   data: function data() {
@@ -13895,7 +13894,9 @@ var _default = {
 
       if (this.visible === true) {
         //异步解决点击后visible变成true后立刻变回false的问题
-        setTimeout(function () {
+        this.$nextTick(function () {
+          document.body.appendChild(_this.$refs.contentWrapper);
+
           var eventHandler = function eventHandler() {
             _this.visible = false; //每次更改后需要移除监听器
 
@@ -13937,6 +13938,7 @@ exports.default = _default;
         ? _c(
             "div",
             {
+              ref: "contentWrapper",
               staticClass: "contentWrapper",
               on: {
                 click: function($event) {
@@ -14085,7 +14087,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53793" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63045" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
