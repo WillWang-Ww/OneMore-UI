@@ -13879,6 +13879,8 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
   name: "OMPopover",
   data: function data() {
@@ -13886,25 +13888,54 @@ var _default = {
       visible: false
     };
   },
+  mounted: function mounted() {},
   methods: {
-    trigger: function trigger() {
+    popoverPosition: function popoverPosition() {
+      document.body.appendChild(this.$refs.contentWrapper);
+
+      var _this$$refs$triggerWr = this.$refs.triggerWrapper.getBoundingClientRect(),
+          width = _this$$refs$triggerWr.width,
+          height = _this$$refs$triggerWr.height,
+          top = _this$$refs$triggerWr.top,
+          left = _this$$refs$triggerWr.left;
+
+      this.$refs.contentWrapper.style.left = left + window.scrollX + "px";
+      this.$refs.contentWrapper.style.top = top + window.scrollY + "px";
+    },
+    onClickDocument: function onClickDocument(e) {
+      if (this.$refs.popover && (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))) {
+        return;
+      }
+
+      if (this.$refs.contentWrapper && (this.$refs.contentWrapper === e.target || this.$refs.contentWrapper.contains(e.target))) {
+        return;
+      }
+
+      this.close();
+    },
+    open: function open() {
       var _this = this;
 
-      this.visible = !this.visible;
+      this.visible = true; //异步解决点击后visible变成true后立刻变回false的问题
 
-      if (this.visible === true) {
-        //异步解决点击后visible变成true后立刻变回false的问题
-        this.$nextTick(function () {
-          document.body.appendChild(_this.$refs.contentWrapper);
+      this.$nextTick(function () {
+        _this.popoverPosition(); //每次更改后需要移除监听器
 
-          var eventHandler = function eventHandler() {
-            _this.visible = false; //每次更改后需要移除监听器
 
-            document.removeEventListener('click', eventHandler);
-          };
-
-          document.addEventListener('click', eventHandler);
-        });
+        document.addEventListener("click", _this.onClickDocument);
+      });
+    },
+    close: function close() {
+      this.visible = false;
+      document.removeEventListener("click", this.onClickDocument);
+    },
+    onClick: function onClick(event) {
+      if (this.$refs.triggerWrapper.contains(event.target)) {
+        if (this.visible === true) {
+          this.close();
+        } else {
+          this.open();
+        }
       }
     }
   }
@@ -13925,11 +13956,12 @@ exports.default = _default;
   return _c(
     "div",
     {
+      ref: "popover",
       staticClass: "popover",
       on: {
         click: function($event) {
           $event.stopPropagation()
-          return _vm.trigger($event)
+          return _vm.onClick($event)
         }
       }
     },
@@ -13937,23 +13969,14 @@ exports.default = _default;
       _vm.visible
         ? _c(
             "div",
-            {
-              ref: "contentWrapper",
-              staticClass: "contentWrapper",
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                }
-              }
-            },
+            { ref: "contentWrapper", staticClass: "contentWrapper" },
             [_vm._t("content")],
             2
           )
         : _vm._e(),
       _vm._v(" "),
-      _vm._t("default")
-    ],
-    2
+      _c("span", { ref: "triggerWrapper" }, [_vm._t("default")], 2)
+    ]
   )
 }
 var staticRenderFns = []
@@ -14087,7 +14110,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63045" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59083" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
