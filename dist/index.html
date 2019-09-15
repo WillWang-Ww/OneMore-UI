@@ -11,18 +11,34 @@
             margin-top: 50px;
         }</style>
     <style>#app{
-            margin-left: 50px;
-            margin-top: 100px;
+            width:100%;
+        }
+        #popover{
+            width:50%;
+            margin-bottom: 30px;
         }</style>
 <link rel="stylesheet" href="/app.a6a4d504.css"></head>
 <body>
     <div id="app">
-        <o-popover>
+        <o-popover id="popover" position="bottom">
             <template slot="content">
                 <div>Show me!</div>
             </template>
-                <button>click me</button>        
+            <o-button id="button" importance="primary"> click </o-button>
         </o-popover>
+        <o-popover id="popover" position="top">
+            <template slot="content">
+                <div>Show me!</div>
+            </template>
+            <o-button id="button" importance="primary"> click </o-button>
+        </o-popover>
+        <o-popover id="popover" position="right">
+                <template slot="content">
+                    <div>Show me!</div>
+                </template>
+                <o-button id="button" importance="primary"> click </o-button>
+        </o-popover>
+        
     </div>
 </body>
 <script src="/app.a6a4d504.js"></script>

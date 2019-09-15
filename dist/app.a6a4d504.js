@@ -13888,19 +13888,61 @@ var _default = {
       visible: false
     };
   },
+  props: {
+    position: {
+      type: String,
+      default: 'top',
+      validator: function validator(value) {
+        return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0;
+      }
+    }
+  },
   mounted: function mounted() {},
   methods: {
     popoverPosition: function popoverPosition() {
-      document.body.appendChild(this.$refs.contentWrapper);
+      var _this$$refs = this.$refs,
+          contentWrapper = _this$$refs.contentWrapper,
+          triggerWrapper = _this$$refs.triggerWrapper;
+      (this.container || document.body).appendChild(contentWrapper);
 
-      var _this$$refs$triggerWr = this.$refs.triggerWrapper.getBoundingClientRect(),
-          width = _this$$refs$triggerWr.width,
-          height = _this$$refs$triggerWr.height,
-          top = _this$$refs$triggerWr.top,
-          left = _this$$refs$triggerWr.left;
+      var _triggerWrapper$getBo = triggerWrapper.getBoundingClientRect(),
+          width = _triggerWrapper$getBo.width,
+          height = _triggerWrapper$getBo.height,
+          top = _triggerWrapper$getBo.top,
+          left = _triggerWrapper$getBo.left;
 
-      this.$refs.contentWrapper.style.left = left + window.scrollX + "px";
-      this.$refs.contentWrapper.style.top = top + window.scrollY + "px";
+      var _contentWrapper$getBo = contentWrapper.getBoundingClientRect(),
+          height2 = _contentWrapper$getBo.height;
+
+      var positions = {
+        top: {
+          top: top + window.scrollY,
+          left: left + window.scrollX
+        },
+        bottom: {
+          top: top + height + window.scrollY,
+          left: left + window.scrollX
+        },
+        left: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX
+        },
+        right: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX + width
+        }
+      };
+
+      if (this.position === 'top') {
+        contentWrapper.style.left = positions[this.position].left + 'px';
+        contentWrapper.style.top = positions[this.position].top - 5 + 'px';
+      } else if (this.position === 'bottom') {
+        contentWrapper.style.left = positions[this.position].left + 'px';
+        contentWrapper.style.top = positions[this.position].top + 10 + 'px';
+      } else {
+        contentWrapper.style.left = positions[this.position].left + 'px';
+        contentWrapper.style.top = positions[this.position].top + 'px';
+      }
     },
     onClickDocument: function onClickDocument(e) {
       if (this.$refs.popover && (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))) {
@@ -13950,6 +13992,7 @@ exports.default = _default;
         /* template */
         Object.assign($361e90, (function () {
           var render = function() {
+  var _obj
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -13969,13 +14012,24 @@ exports.default = _default;
       _vm.visible
         ? _c(
             "div",
-            { ref: "contentWrapper", staticClass: "contentWrapper" },
+            {
+              ref: "contentWrapper",
+              staticClass: "contentWrapper",
+              class: ((_obj = {}),
+              (_obj["position-" + _vm.position] = true),
+              _obj)
+            },
             [_vm._t("content")],
             2
           )
         : _vm._e(),
       _vm._v(" "),
-      _c("span", { ref: "triggerWrapper" }, [_vm._t("default")], 2)
+      _c(
+        "span",
+        { ref: "triggerWrapper", staticClass: "triggerWrapper" },
+        [_vm._t("default")],
+        2
+      )
     ]
   )
 }
@@ -14110,7 +14164,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59083" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63324" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

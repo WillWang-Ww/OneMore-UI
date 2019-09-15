@@ -70,15 +70,18 @@ export default {
         display:inline-flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
     }
     .large{
         width: 100%;
     }
     .normal{
         width: 50%;
+        border-radius: 4px;
     }
     .small{
         width: 25%;
+        border-radius: 4px;
         
     }
     .default{
