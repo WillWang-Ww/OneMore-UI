@@ -28,15 +28,18 @@
     display:inline-flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 .large[data-v-9e778f]{
     width: 100%;
 }
 .normal[data-v-9e778f]{
     width: 50%;
+    border-radius: 4px;
 }
 .small[data-v-9e778f]{
     width: 25%;
+    border-radius: 4px;
 }
 .default[data-v-9e778f]{
     background-color: #4a4c5b;

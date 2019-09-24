@@ -1,5 +1,5 @@
 <template>
-  <div class="popover" @click.stop="onClick" ref="popover">
+  <div class="popover" ref="popover">
     <div ref="contentWrapper" v-if="visible" class="contentWrapper" :class="{[`position-${position}`]:true}">
       <slot name="content"></slot>
     </div>
@@ -24,9 +24,59 @@ export default {
           return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0
         }
       },
+      trigger: {
+        type: String,
+        default: 'click',
+        validator (value) {
+          return ['click', 'hover'].indexOf(value) >= 0
+        }
+      },
   },
-  mounted() {},
+  computed: {
+      openEvent () {
+        if (this.trigger === 'click') {
+          return 'click'
+        } else {
+          return 'mouseenter'
+        }
+      },
+      closeEvent () {
+        if (this.trigger === 'click') {
+          return 'click'
+        } else {
+          return 'mouseleave'
+        }
+      }
+  },
+  mounted() {
+    this.addPopoverListeners()
+  },
+  beforeDestroy () {
+      this.putBackContent()
+      this.removePopoverListeners()
+  },
   methods: {
+    addPopoverListeners () {
+        if (this.trigger === 'click') {
+          this.$refs.popover.addEventListener('click', this.onClick)
+        } else {
+          this.$refs.popover.addEventListener('mouseenter', this.open)
+          this.$refs.popover.addEventListener('mouseleave', this.close)
+        }
+      },
+      removePopoverListeners () {
+        if (this.trigger === 'click') {
+          this.$refs.popover.removeEventListener('click', this.onClick)
+        } else {
+          this.$refs.popover.removeEventListener('mouseenter', this.open)
+          this.$refs.popover.removeEventListener('mouseleave', this.close)
+        }
+      },
+      putBackContent () {
+        const {contentWrapper, popover} = this.$refs
+        if (!contentWrapper) {return}
+        popover.appendChild(contentWrapper)
+      },
     popoverPosition() {
        const {contentWrapper, triggerWrapper} = this.$refs;
         (this.container || document.body).appendChild(contentWrapper)
