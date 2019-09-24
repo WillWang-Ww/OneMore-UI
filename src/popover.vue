@@ -1,7 +1,7 @@
 <template>
   <div class="popover" ref="popover">
     <div ref="contentWrapper" v-if="visible" class="contentWrapper" :class="{[`position-${position}`]:true}">
-      <slot name="content"></slot>
+      <slot name="content" :close="close"></slot>
     </div>
     <span ref="triggerWrapper" class="triggerWrapper">
       <slot></slot>
@@ -24,13 +24,13 @@ export default {
           return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0
         }
       },
-      trigger: {
-        type: String,
-        default: 'click',
-        validator (value) {
-          return ['click', 'hover'].indexOf(value) >= 0
-        }
-      },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator (value) {
+        return ['click', 'hover'].indexOf(value) >= 0
+      }
+    },
   },
   computed: {
       openEvent () {
