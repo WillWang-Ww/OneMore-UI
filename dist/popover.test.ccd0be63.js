@@ -12404,7 +12404,7 @@ function patchScopedSlots (instance) {
   }
 }
 
-},{}],"../src/switch.vue":[function(require,module,exports) {
+},{}],"../src/popover.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12418,104 +12418,203 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
 var _default = {
-  name: 'OMSwitch',
-  props: {
-    value: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
-  },
+  name: "OMPopover",
   data: function data() {
     return {
-      checkedValue: this.value,
-      isChecked: undefined,
-      unChecked: undefined
+      visible: false
     };
   },
+  props: {
+    position: {
+      type: String,
+      default: 'top',
+      validator: function validator(value) {
+        return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0;
+      }
+    },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator: function validator(value) {
+        return ['click', 'hover'].indexOf(value) >= 0;
+      }
+    }
+  },
+  computed: {
+    openEvent: function openEvent() {
+      if (this.trigger === 'click') {
+        return 'click';
+      } else {
+        return 'mouseenter';
+      }
+    },
+    closeEvent: function closeEvent() {
+      if (this.trigger === 'click') {
+        return 'click';
+      } else {
+        return 'mouseleave';
+      }
+    }
+  },
   mounted: function mounted() {
-    this.isChecked = false;
+    this.addPopoverListeners();
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.putBackContent();
+    this.removePopoverListeners();
   },
   methods: {
-    watchCheck: function watchCheck() {
-      if (!this.disabled) {
-        this.unChecked = this.isChecked;
-        this.isChecked = !this.isChecked;
+    addPopoverListeners: function addPopoverListeners() {
+      if (this.trigger === 'click') {
+        this.$refs.popover.addEventListener('click', this.onClick);
+      } else {
+        this.$refs.popover.addEventListener('mouseenter', this.open);
+        this.$refs.popover.addEventListener('mouseleave', this.close);
+      }
+    },
+    removePopoverListeners: function removePopoverListeners() {
+      if (this.trigger === 'click') {
+        this.$refs.popover.removeEventListener('click', this.onClick);
+      } else {
+        this.$refs.popover.removeEventListener('mouseenter', this.open);
+        this.$refs.popover.removeEventListener('mouseleave', this.close);
+      }
+    },
+    putBackContent: function putBackContent() {
+      var _this$$refs = this.$refs,
+          contentWrapper = _this$$refs.contentWrapper,
+          popover = _this$$refs.popover;
+
+      if (!contentWrapper) {
+        return;
+      }
+
+      popover.appendChild(contentWrapper);
+    },
+    popoverPosition: function popoverPosition() {
+      var _this$$refs2 = this.$refs,
+          contentWrapper = _this$$refs2.contentWrapper,
+          triggerWrapper = _this$$refs2.triggerWrapper;
+      (this.container || document.body).appendChild(contentWrapper);
+
+      var _triggerWrapper$getBo = triggerWrapper.getBoundingClientRect(),
+          width = _triggerWrapper$getBo.width,
+          height = _triggerWrapper$getBo.height,
+          top = _triggerWrapper$getBo.top,
+          left = _triggerWrapper$getBo.left;
+
+      var _contentWrapper$getBo = contentWrapper.getBoundingClientRect(),
+          height2 = _contentWrapper$getBo.height;
+
+      var positions = {
+        top: {
+          top: top + window.scrollY,
+          left: left + window.scrollX
+        },
+        bottom: {
+          top: top + height + window.scrollY,
+          left: left + window.scrollX
+        },
+        left: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX
+        },
+        right: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX + width
+        }
+      };
+
+      if (this.position === 'top') {
+        contentWrapper.style.left = positions[this.position].left + 'px';
+        contentWrapper.style.top = positions[this.position].top - 5 + 'px';
+      } else if (this.position === 'bottom') {
+        contentWrapper.style.left = positions[this.position].left + 'px';
+        contentWrapper.style.top = positions[this.position].top + 10 + 'px';
+      } else {
+        contentWrapper.style.left = positions[this.position].left + 'px';
+        contentWrapper.style.top = positions[this.position].top + 'px';
+      }
+    },
+    onClickDocument: function onClickDocument(e) {
+      if (this.$refs.popover && (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))) {
+        return;
+      }
+
+      if (this.$refs.contentWrapper && (this.$refs.contentWrapper === e.target || this.$refs.contentWrapper.contains(e.target))) {
+        return;
+      }
+
+      this.close();
+    },
+    open: function open() {
+      var _this = this;
+
+      this.visible = true; //异步解决点击后visible变成true后立刻变回false的问题
+
+      this.$nextTick(function () {
+        _this.popoverPosition(); //每次更改后需要移除监听器
+
+
+        document.addEventListener("click", _this.onClickDocument);
+      });
+    },
+    close: function close() {
+      this.visible = false;
+      document.removeEventListener("click", this.onClickDocument);
+    },
+    onClick: function onClick(event) {
+      if (this.$refs.triggerWrapper.contains(event.target)) {
+        if (this.visible === true) {
+          this.close();
+        } else {
+          this.open();
+        }
       }
     }
   }
 };
 exports.default = _default;
-        var $148d27 = exports.default || module.exports;
+        var $361e90 = exports.default || module.exports;
       
-      if (typeof $148d27 === 'function') {
-        $148d27 = $148d27.options;
+      if (typeof $361e90 === 'function') {
+        $361e90 = $361e90.options;
       }
     
         /* template */
-        Object.assign($148d27, (function () {
+        Object.assign($361e90, (function () {
           var render = function() {
+  var _obj
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "OMSwitchWrapper", on: { click: _vm.watchCheck } },
-    [
-      _c("div", {
-        staticClass: "BGWrapper",
-        class: { wrapperActive: _vm.isChecked, wrapperUnActive: _vm.unChecked }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
+  return _c("div", { ref: "popover", staticClass: "popover" }, [
+    _vm.visible
+      ? _c(
+          "div",
           {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.checkedValue,
-            expression: "checkedValue"
-          }
-        ],
-        staticClass: "OMSwitchInput",
-        attrs: { type: "checkbox", disabled: _vm.disabled },
-        domProps: {
-          checked: Array.isArray(_vm.checkedValue)
-            ? _vm._i(_vm.checkedValue, null) > -1
-            : _vm.checkedValue
-        },
-        on: {
-          change: function($event) {
-            var $$a = _vm.checkedValue,
-              $$el = $event.target,
-              $$c = $$el.checked ? true : false
-            if (Array.isArray($$a)) {
-              var $$v = null,
-                $$i = _vm._i($$a, $$v)
-              if ($$el.checked) {
-                $$i < 0 && (_vm.checkedValue = $$a.concat([$$v]))
-              } else {
-                $$i > -1 &&
-                  (_vm.checkedValue = $$a
-                    .slice(0, $$i)
-                    .concat($$a.slice($$i + 1)))
-              }
-            } else {
-              _vm.checkedValue = $$c
-            }
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("div", {
-        staticClass: "OMSwitchButton",
-        class: { checked: _vm.isChecked, unChecked: _vm.unChecked }
-      })
-    ]
-  )
+            ref: "contentWrapper",
+            staticClass: "contentWrapper",
+            class: ((_obj = {}),
+            (_obj["position-" + _vm.position] = true),
+            _obj)
+          },
+          [_vm._t("content", null, { close: _vm.close })],
+          2
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "span",
+      { ref: "triggerWrapper", staticClass: "triggerWrapper" },
+      [_vm._t("default")],
+      2
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12524,7 +12623,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-148d27",
+            _scopeId: "data-v-361e90",
             functional: undefined
           };
         })());
@@ -12537,9 +12636,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$148d27', $148d27);
+            api.createRecord('$361e90', $361e90);
           } else {
-            api.reload('$148d27', $148d27);
+            api.reload('$361e90', $361e90);
           }
         }
 
@@ -12550,47 +12649,57 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.common.js"}],"switch.test.js":[function(require,module,exports) {
+},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.common.js"}],"popover.test.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
 
-var _switch = _interopRequireDefault(require("../src/switch"));
+var _popover = _interopRequireDefault(require("../src/popover"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var expect = chai.expect;
 _vue.default.config.productionTip = false;
-_vue.default.config.devtools = false; //BDD 行为测试驱动 mocha
-
-describe('Switch', function () {
+_vue.default.config.devtools = false;
+describe('Popover', function () {
   it('存在.', function () {
-    expect(_switch.default).to.be.ok;
+    expect(_popover.default).to.exist;
   });
-  describe('props', function () {
-    it('接收 disabled', function () {
-      var Constructor = _vue.default.extend(_switch.default);
-
-      var vm = new Constructor({
-        propsData: {
-          disabled: true
-        }
-      }).$mount();
-      var useElement = vm.$el.querySelector('input');
-      expect(useElement.getAttribute('disabled')).to.equal('disabled');
-      vm.$destroy();
-    }); // it('点击 Switch 触发 click 事件', () => {
-    //     const Constructor = Vue.extend(Switch)
-    //     const vm = new Constructor({
-    //     }).$mount()
-    //     vm.$el.click()
-    //     const useElement = vm.$el.querySelector('.OMSwitchButton')
-    //     console.log(useElement)
-    //     expect(useElement.classList.contains('unChecked')).to.eq(true)
-    // })
+  it('可以设置position.', function () {
+    var wrapper = mount(_popover.default, {
+      slots: {
+        default: {
+          template: "<button>\u70B9\u6211</button>"
+        },
+        content: '<div>弹出内容</div>'
+      },
+      propsData: {
+        position: 'bottom'
+      }
+    });
+    wrapper.find('button').trigger('click');
+    var classes = wrapper.find('.content-wrapper').classes();
+    expect(classes).to.include('position-bottom');
+  });
+  it('可以设置 trigger', function () {
+    var wrapper = mount(_popover.default, {
+      slots: {
+        default: {
+          template: "<button>\u70B9\u6211</button>"
+        },
+        content: '<div>弹出内容</div>'
+      },
+      propsData: {
+        position: 'bottom',
+        trigger: 'hover'
+      }
+    });
+    expect(wrapper.find('.content-wrapper').element).to.not.exist;
+    wrapper.find('.popover').trigger('mouseenter');
+    expect(wrapper.find('.content-wrapper').element).to.exist;
   });
 });
-},{"vue":"../node_modules/vue/dist/vue.common.js","../src/switch":"../src/switch.vue"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"../node_modules/vue/dist/vue.common.js","../src/popover":"../src/popover.vue"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -12618,7 +12727,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56366" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63991" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -12793,5 +12902,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","switch.test.js"], null)
-//# sourceMappingURL=/switch.test.js.map
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","popover.test.js"], null)
+//# sourceMappingURL=/popover.test.ccd0be63.js.map
